@@ -1,5 +1,6 @@
 package com.army.ardiary.ui.splash
 
+import android.Manifest
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.Observer
@@ -9,15 +10,20 @@ import com.army.ardiary.databinding.ActivitySplashBinding
 import com.army.ardiary.ui.BaseActivity
 import com.army.ardiary.ui.main.MainActivity
 import com.army.ardiary.viewmodel.AuthViewModel
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 
 
 class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate){
 
     lateinit var authViewModel: AuthViewModel
+    lateinit var permissionlistener: PermissionListener
+    lateinit var tedPermission: TedPermission.Builder
 
     override fun initAfterBinding() {
         viewModelSetting()
         observerSetting()
+        permissionSetting()
 
         Handler(Looper.getMainLooper()).postDelayed({
             authViewModel.autoLogin()
@@ -35,7 +41,9 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding:
                     showToast("네트워크에 문제가 발생했습니다.")
                     finish()
                 }
-                NetworkState.LOADED -> {}
+                NetworkState.LOADED -> {
+                    tedPermission.check()
+                }
                 NetworkState.LOADING -> {}
             }
         })
@@ -44,5 +52,23 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding:
                 else -> startActivityWithClear(MainActivity::class.java)
             }
         })
+    }
+    private fun permissionSetting(){
+        permissionlistener = object : PermissionListener {
+            override fun onPermissionGranted() {
+                showToast("Permission Granted")
+                startActivityWithClear(MainActivity::class.java)
+            }
+
+            override fun onPermissionDenied(deniedPermissions: List<String>) {
+                showToast("Permission Denied\n$deniedPermissions")
+                finish()
+            }
+        }
+
+        tedPermission = TedPermission.create()
+            .setPermissionListener(permissionlistener)
+            .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+            .setPermissions(Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA)
     }
 }
