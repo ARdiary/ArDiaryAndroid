@@ -17,20 +17,20 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/friend_tab_layout"
+        android:id="@+id/like_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/profile_margin_left"
         app:layout_constraintTop_toBottomOf="@id/back_btn"/>
 
-    <FrameLayout
-        android:id="@+id/friend_fragment_layout"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/like_fragment_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/friend_tab_layout" />
+        app:layout_constraintTop_toBottomOf="@id/like_tab_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

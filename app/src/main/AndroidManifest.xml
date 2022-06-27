@@ -17,7 +17,7 @@
             android:name=".ui.newobj.NewObjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.diary.timecasulelist.TimeCapsuleListActivity"
+            android:name=".ui.main.diary.guestbooklist.TimeCapsuleListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.diary.diarylist.DiaryListActivity"
