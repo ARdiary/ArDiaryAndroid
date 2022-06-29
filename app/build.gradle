@@ -75,4 +75,7 @@ dependencies {
 
     //TedPermission
     implementation "io.github.ParkSangGwon:tedpermission-normal:$ted_perm_version"
+
+    // wave animation
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

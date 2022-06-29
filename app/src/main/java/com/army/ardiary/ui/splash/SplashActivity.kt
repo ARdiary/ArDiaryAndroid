@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.army.ardiary.data.NetworkState
 import com.army.ardiary.databinding.ActivitySplashBinding
 import com.army.ardiary.ui.BaseActivity
+import com.army.ardiary.ui.login.LoginActivity
 import com.army.ardiary.ui.main.MainActivity
+import com.army.ardiary.utils.getJwt
 import com.army.ardiary.viewmodel.AuthViewModel
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
@@ -57,7 +59,11 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding:
         permissionlistener = object : PermissionListener {
             override fun onPermissionGranted() {
                 showToast("Permission Granted")
-                startActivityWithClear(MainActivity::class.java)
+                // Check Token and start mainActivity
+                startActivityWithClear(
+                    if(getJwt() == null) LoginActivity::class.java
+                    else MainActivity::class.java
+                )
             }
 
             override fun onPermissionDenied(deniedPermissions: List<String>) {
