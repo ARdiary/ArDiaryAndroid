@@ -38,6 +38,10 @@
 
         app:tabIndicator="@drawable/indicator_style"
         app:tabIndicatorColor="@color/primary"
+        app:tabIndicatorHeight="1dp"
+        app:tabIndicatorGravity="stretch"
+        app:tabMaxWidth="50dp"
+        app:tabMaxHeight="50dp"
 
         app:tabIndicatorFullWidth="true"
         app:tabMode="scrollable"
