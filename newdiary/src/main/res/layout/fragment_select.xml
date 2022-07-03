@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/guide_layout_padding"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.content.SelectFragment">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="@dimen/back_button_icon"
+        android:layout_height="@dimen/back_button_icon"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/back_button" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/select_marker"
+        android:textColor="@color/black"
+        android:textSize="@dimen/guide_large_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_btn" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        app:tabIndicator="@drawable/indicator_style"
+        app:tabIndicatorColor="@color/primary"
+
+        app:tabIndicatorFullWidth="true"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/transparent"
+
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:layout_editor_absoluteX="18dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@mipmap/ic_launcher" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/choose_category"
+        android:textColor="@color/black"
+        android:textSize="@dimen/guide_large_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+    <LinearLayout
+        android:id="@+id/guest_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|start"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/guide_padding_top"
+        android:paddingBottom="@dimen/guide_padding_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="방명록"
+            android:layout_marginStart="@dimen/guide_margin_left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_large_size" />
+
+        <ImageView
+            android:layout_width="@dimen/next_button_icon"
+            android:layout_height="@dimen/next_button_icon"
+            android:layout_marginEnd="@dimen/guide_margin_right"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/time_capsule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|start"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/guide_padding_top"
+        android:paddingBottom="@dimen/guide_padding_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guest_book">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="타임캡슐"
+            android:layout_marginLeft="@dimen/guide_margin_left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_large_size" />
+
+        <ImageView
+            android:layout_width="@dimen/next_button_icon"
+            android:layout_height="@dimen/next_button_icon"
+            android:layout_marginRight="@dimen/guide_margin_right"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/diary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|start"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/guide_padding_top"
+        android:paddingBottom="@dimen/guide_padding_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_capsule">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="일기"
+            android:layout_marginLeft="@dimen/guide_margin_left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_large_size" />
+
+        <ImageView
+            android:layout_width="@dimen/next_button_icon"
+            android:layout_height="@dimen/next_button_icon"
+            android:layout_marginRight="@dimen/guide_margin_right"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

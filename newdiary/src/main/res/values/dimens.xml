@@ -1,0 +1,39 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Guide text size-->
+    <dimen name="guide_layout_padding">18dp</dimen>
+    <dimen name="guide_margin_left">18dp</dimen>
+    <dimen name="guide_margin_right">18dp</dimen>
+    <dimen name="guide_padding_top">8dp</dimen>
+    <dimen name="guide_padding_bottom">8dp</dimen>
+    <dimen name="guide_large_size">18sp</dimen>
+    <dimen name="guide_small_size">14sp</dimen>
+
+    <!--icon size-->
+    <dimen name="back_button_icon">50dp</dimen>
+    <dimen name="next_button_icon">50dp</dimen>
+
+    <!--complete button size-->
+    <dimen name="complete_button_text_size">18sp</dimen>
+    <dimen name="complete_button_width_size">150dp</dimen>
+    <dimen name="complete_button_height_size">40dp</dimen>
+
+    <!--create component size-->
+    <dimen name="edit_text_mini_size">10sp</dimen>
+    <dimen name="edit_text_size">12sp</dimen>
+    <dimen name="edit_padding_size">20dp</dimen>
+    <dimen name="text_large_size">16sp</dimen>
+
+    <!--preview icon size-->
+    <dimen name="preview_select_image_default_size">60dp</dimen>
+    <dimen name="preview_select_image_small_size">40dp</dimen>
+    <dimen name="preview_select_image_tiny_size">40dp</dimen>
+
+    <dimen name="preview_marker_icon_size">60dp</dimen>
+    <dimen name="preview_shadow_icon_size">60dp</dimen>
+
+    <!--media button size-->
+    <dimen name="add_media_button_size">80dp</dimen>
+    <dimen name="media_padding_size">30dp</dimen>
+</resources>
