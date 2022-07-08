@@ -1,20 +1,14 @@
 package com.army.newdiary.ui.content.diary
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.army.newdiary.R
+import com.army.newdiary.databinding.FragmentDiaryBinding
+import com.army.newdiary.ui.BaseFragment
 
-class DiaryFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diary, container, false)
+class DiaryFragment : BaseFragment<FragmentDiaryBinding>(FragmentDiaryBinding::inflate){
+    override fun initAfterBinding() {
+        buttonSetting()
     }
 
+    private fun buttonSetting(){
+        binding.backBtn.setOnClickListener { removeTopFragment() }
+    }
 }

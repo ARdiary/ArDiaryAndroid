@@ -1,18 +1,14 @@
 package com.army.newdiary.ui.content.timecapsule
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.army.newdiary.R
+import com.army.newdiary.databinding.FragmentTimeCapsuleBinding
+import com.army.newdiary.ui.BaseFragment
 
-class TimeCapsuleFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_time_capsule, container, false)
+class TimeCapsuleFragment : BaseFragment<FragmentTimeCapsuleBinding>(FragmentTimeCapsuleBinding::inflate){
+    override fun initAfterBinding() {
+        buttonSetting()
+    }
+
+    private fun buttonSetting(){
+        binding.backBtn.setOnClickListener { removeTopFragment() }
     }
 }
