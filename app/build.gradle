@@ -67,6 +67,7 @@ dependencies {
 
     //RoomDB
     implementation "androidx.room:room-runtime:$roomdb_version"
+    annotationProcessor "androidx.room:room-compiler:$roomdb_version"
     kapt "androidx.room:room-compiler:$roomdb_version"
 
     //Gson
