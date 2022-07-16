@@ -39,7 +39,14 @@
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true" />
+            android:exported="true">
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:host="oauth"
+                android:scheme="kakao4732e65152a337c4d9a764c7ab2950b9" />
+        </activity>
         <activity
             android:name=".ui.profile.MyProfileActivity"
             android:exported="true" />

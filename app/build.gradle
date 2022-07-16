@@ -81,4 +81,13 @@ dependencies {
 
     // wave animation
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    /*implementation group: 'com.kakao.sdk', name: 'usermgmt', version: $kakaoVersion
+    implementation group: 'com.kakao.sdk', name: 'kakaolink', version: $kakaoVersion*/
+    // Kakao OAuth
+    implementation "com.kakao.sdk:v2-user:$kakaoVersion"
+    implementation "com.kakao.sdk:v2-talk:$kakaoVersion"
+    implementation "com.kakao.sdk:v2-share:$kakaoVersion"
+    implementation "com.kakao.sdk:v2-usermgmt:$kakaoVersion"
+    implementation "com.kakao.sdk:v2-kakaolink:$kakaoVersion"
 }
