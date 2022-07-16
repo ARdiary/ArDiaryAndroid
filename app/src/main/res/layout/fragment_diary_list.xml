@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintTop_toTopOf="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="10"
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/diary_list_item" />
