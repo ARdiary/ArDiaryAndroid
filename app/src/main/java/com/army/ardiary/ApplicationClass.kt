@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.army.ardiary.config.XAccessTokenInterceptor
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,16 +16,19 @@ class ApplicationClass : Application() {
         const val TAG: String = "DIARY-APP"                      // Log, SharedPreference
         const val APP_DATABASE = "$TAG-DB"
 
-        const val DEV_URL: String = "url";       // 테스트 서버 주소
+        const val DEV_URL: String = "https://www.naver.com"       // 테스트 서버 주소
         const val PROD_URL: String = "url"    // 실서버 주소
         const val BASE_URL: String = DEV_URL
+        const val KAKAO_URL: String = "https://www.naver.com";       // 테스트 서버 주소
 
         lateinit var mSharedPreferences: SharedPreferences
-        lateinit var retrofit: Retrofit
+        lateinit var arRetrofit: Retrofit
+        lateinit var kakaoRetrofit: Retrofit
     }
 
     override fun onCreate() {
         super.onCreate()
+        KakaoSdk.init(this,getString(R.string.kakao_app_key))
 
         val client: OkHttpClient = OkHttpClient.Builder()
             .readTimeout(30000, TimeUnit.MILLISECONDS)
@@ -32,7 +36,13 @@ class ApplicationClass : Application() {
             .addNetworkInterceptor(XAccessTokenInterceptor()) // JWT 자동 헤더 전송
             .build()
 
-        retrofit = Retrofit.Builder()
+        arRetrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        kakaoRetrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())

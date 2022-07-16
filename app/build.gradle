@@ -67,6 +67,7 @@ dependencies {
 
     //RoomDB
     implementation "androidx.room:room-runtime:$roomdb_version"
+    annotationProcessor "androidx.room:room-compiler:$roomdb_version"
     kapt "androidx.room:room-compiler:$roomdb_version"
 
     //Gson
@@ -81,4 +82,11 @@ dependencies {
 
     // wave animation
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.0'
+    implementation group: 'com.kakao.sdk', name: 'kakaolink', version: '1.30.5'
+
+    implementation "com.kakao.sdk:v2-user:2.5.0"
+    implementation "com.kakao.sdk:v2-talk:2.5.0"
+    implementation "com.kakao.sdk:v2-share:2.11.0"
 }
