@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/androidstudio,macos,windows,kotlin
 # Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio,macos,windows,kotlin
 
+app/src/main/res/values/kakao_app_key.xml
 ### Kotlin ###
 # Compiled class file
 *.class
