@@ -14,6 +14,7 @@ buildscript {
         navi_version = "2.4.2"
         ted_perm_version = "3.3.0"
         lottieVersion = "3.4.0"
+        kakaoVersion = "2.11.0"
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
