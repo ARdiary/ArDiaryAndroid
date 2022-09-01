@@ -20,12 +20,14 @@ class TimeCapsuleViewModel : ViewModel() {
 
     fun setDday(y: Int, m: Int, d: Int): Boolean {
         val currentDate = getCurrentDate()
+        var flag = false
 
-        if (y < currentDate.year) return false
-        else if (m < currentDate.month) return false
-        else if (d <= currentDate.date) return false
-        this.dDay.value = Date(y, m, d)
+        if (y > currentDate.year) flag = true
+        else if (y == currentDate.year && m > currentDate.month) flag = true
+        else if (y == currentDate.year && m == currentDate.month && d > currentDate.date)
+            flag = true
 
-        return true
+        if (flag) this.dDay.value = Date(y, m, d)
+        return flag
     }
 }
