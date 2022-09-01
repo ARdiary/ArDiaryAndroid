@@ -1,4 +1,4 @@
-package com.army.newdiary.ui
+package com.army.newdiary.ui.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.army.newdiary.R
-import com.army.newdiary.ui.viewmodel.NewDiaryViewModel
+import com.army.newdiary.ui.NewDiaryViewModel
 import com.army.newdiary.utils.Inflate
-
 
 abstract class BaseFragment<VB : ViewBinding>(
     private val inflate: Inflate<VB>
@@ -51,8 +50,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     protected abstract fun initAfterBinding()
 
     fun showToast(message: String)
-        = Toast
-            .makeText(parentActivity, message, Toast.LENGTH_SHORT)
+        = Toast.makeText(parentActivity, message, Toast.LENGTH_SHORT)
             .show()
 
     fun changeFragment(fragment: Fragment)

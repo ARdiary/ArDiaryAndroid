@@ -1,7 +1,7 @@
 package com.army.newdiary.ui.content.diary
 
 import com.army.newdiary.databinding.FragmentDiaryBinding
-import com.army.newdiary.ui.BaseFragment
+import com.army.newdiary.ui.common.base.BaseFragment
 
 class DiaryFragment : BaseFragment<FragmentDiaryBinding>(FragmentDiaryBinding::inflate){
     override fun initAfterBinding() {

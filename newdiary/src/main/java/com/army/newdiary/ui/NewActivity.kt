@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.army.newdiary.R
 import com.army.newdiary.databinding.ActivityNewBinding
 import com.army.newdiary.ui.content.SelectFragment
-import com.army.newdiary.ui.viewmodel.NewDiaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

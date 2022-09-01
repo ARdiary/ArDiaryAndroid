@@ -3,7 +3,7 @@ package com.army.newdiary.ui.content
 import androidx.fragment.app.Fragment
 import com.army.newdiary.R
 import com.army.newdiary.databinding.FragmentSelectBinding
-import com.army.newdiary.ui.BaseFragment
+import com.army.newdiary.ui.common.base.BaseFragment
 import com.army.newdiary.ui.content.diary.DiaryFragment
 import com.army.newdiary.ui.content.guestbook.GuestBookFragment
 import com.army.newdiary.ui.content.timecapsule.TimeCapsuleFragment

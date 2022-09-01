@@ -1,4 +1,4 @@
-package com.army.newdiary.ui.viewmodel
+package com.army.newdiary.ui
 
 import androidx.lifecycle.ViewModel
 

@@ -1,9 +1,9 @@
 package com.army.newdiary.ui.content.guestbook
 
 import com.army.newdiary.databinding.FragmentGuestBookBinding
-import com.army.newdiary.ui.BaseFragment
+import com.army.newdiary.ui.common.base.BaseFragment
 
-class GuestBookFragment :BaseFragment<FragmentGuestBookBinding>(FragmentGuestBookBinding::inflate){
+class GuestBookFragment : BaseFragment<FragmentGuestBookBinding>(FragmentGuestBookBinding::inflate){
     override fun initAfterBinding() {
         buttonSetting()
     }
