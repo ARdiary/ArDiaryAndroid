@@ -1,210 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.content.diary.DiaryFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="diaryVm"
+            type="com.army.newdiary.ui.content.diary.DiaryViewModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/guide_layout_padding"
-        android:minHeight="780dp"
-        android:paddingBottom="@dimen/guide_layout_padding">
+        android:layout_height="match_parent"
+        tools:context=".ui.content.diary.DiaryFragment">
 
-        <ImageView
-            android:id="@+id/back_btn"
-            android:layout_width="@dimen/back_button_icon"
-            android:layout_height="@dimen/back_button_icon"
-            android:clickable="true"
-            android:contentDescription="@string/back_button"
-            android:focusable="true"
-            android:src="@drawable/ic_arrow_prev"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="일기 작성"
-            android:textColor="@color/black"
-            android:textSize="@dimen/guide_large_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/back_btn" />
+            android:layout_margin="@dimen/guide_layout_padding"
+            android:minHeight="780dp"
+            android:paddingBottom="@dimen/guide_layout_padding">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/title_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:gravity="center_horizontal"
-            android:hint="제목 쓰기"
-            android:paddingLeft="@dimen/edit_padding_size"
-            android:paddingTop="@dimen/edit_padding_size"
-            android:paddingRight="@dimen/edit_padding_size"
-            android:textColor="@color/black"
-            android:textSize="@dimen/guide_large_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="@dimen/back_button_icon"
+                android:layout_height="@dimen/back_button_icon"
+                android:clickable="true"
+                android:contentDescription="@string/back_button"
+                android:focusable="true"
+                android:src="@drawable/ic_arrow_prev"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:minHeight="350dp"
-            app:cardBackgroundColor="@color/secondary"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_et">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="일기 작성"
+                android:textColor="@color/black"
+                android:textSize="@dimen/guide_large_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_btn" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/content_et"
+                android:id="@+id/title_et"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:gravity="center_horizontal"
-                android:hint="@string/input_text"
-                android:nestedScrollingEnabled="true"
-                android:overScrollMode="ifContentScrolls"
+                android:hint="제목 쓰기"
                 android:paddingLeft="@dimen/edit_padding_size"
                 android:paddingTop="@dimen/edit_padding_size"
                 android:paddingRight="@dimen/edit_padding_size"
-                android:scrollbars="vertical"
+                android:text="@={diaryVm.titleText}"
                 android:textColor="@color/black"
-                android:textColorHint="@color/white"
-                android:textSize="@dimen/edit_text_size"
-                android:textStyle="bold" />
+                android:textSize="@dimen/guide_large_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="@dimen/media_padding_size">
+                android:layout_marginTop="10dp"
+                android:minHeight="350dp"
+                app:cardBackgroundColor="@color/secondary"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_et">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/first_add_image_btn"
-                    android:layout_width="@dimen/add_media_button_size"
-                    android:layout_height="@dimen/add_media_button_size"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/content_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/transparent"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/input_text"
+                    android:nestedScrollingEnabled="true"
+                    android:overScrollMode="ifContentScrolls"
+                    android:paddingLeft="@dimen/edit_padding_size"
+                    android:paddingTop="@dimen/edit_padding_size"
+                    android:paddingRight="@dimen/edit_padding_size"
+                    android:scrollbars="vertical"
+                    android:text="@={diaryVm.contentText}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/edit_text_size"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/first_media_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/tertiary"
-                        android:gravity="center"
-                        android:text="@string/media_image_description"
-                        android:textSize="@dimen/edit_text_size"
-                        android:textStyle="bold" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:padding="@dimen/media_padding_size">
 
-                    <ImageView
-                        android:id="@+id/first_media_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/media_image_description" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/first_add_image_btn"
+                        android:layout_width="@dimen/add_media_button_size"
+                        android:layout_height="@dimen/add_media_button_size"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/first_media_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/tertiary"
+                            android:gravity="center"
+                            android:text="@string/media_image_description"
+                            android:textSize="@dimen/edit_text_size"
+                            android:textStyle="bold" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/second_add_image_btn"
-                    android:layout_width="@dimen/add_media_button_size"
-                    android:layout_height="@dimen/add_media_button_size"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/third_add_image_btn"
-                    app:layout_constraintStart_toEndOf="@id/first_add_image_btn"
-                    app:layout_constraintTop_toTopOf="parent">
+                        <ImageView
+                            android:id="@+id/first_media_iv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/media_image_description" />
 
-                    <TextView
-                        android:id="@+id/second_media_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/tertiary"
-                        android:gravity="center"
-                        android:text="@string/media_image_description"
-                        android:textSize="@dimen/edit_text_size"
-                        android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:id="@+id/second_media_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/media_image_description" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/second_add_image_btn"
+                        android:layout_width="@dimen/add_media_button_size"
+                        android:layout_height="@dimen/add_media_button_size"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/third_add_image_btn"
+                        app:layout_constraintStart_toEndOf="@id/first_add_image_btn"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/third_add_image_btn"
-                    android:layout_width="@dimen/add_media_button_size"
-                    android:layout_height="@dimen/add_media_button_size"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                            android:id="@+id/second_media_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/tertiary"
+                            android:gravity="center"
+                            android:text="@string/media_image_description"
+                            android:textSize="@dimen/edit_text_size"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/third_media_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/tertiary"
-                        android:gravity="center"
-                        android:text="@string/media_image_description"
-                        android:textSize="@dimen/edit_text_size"
-                        android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/second_media_iv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/media_image_description" />
+                    </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:id="@+id/third_media_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/media_image_description" />
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/third_add_image_btn"
+                        android:layout_width="@dimen/add_media_button_size"
+                        android:layout_height="@dimen/add_media_button_size"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-        <com.army.newdiary.ui.common.custom.MarkerPreview
-            android:id="@+id/preview_marker_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                        <TextView
+                            android:id="@+id/third_media_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/tertiary"
+                            android:gravity="center"
+                            android:text="@string/media_image_description"
+                            android:textSize="@dimen/edit_text_size"
+                            android:textStyle="bold" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/complete_btn"
-            android:layout_width="@dimen/complete_button_width_size"
-            android:layout_height="@dimen/complete_button_height_size"
-            android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardBackgroundColor="@color/primary"
-            app:cardCornerRadius="100dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/preview_marker_layout">
+                        <ImageView
+                            android:id="@+id/third_media_iv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/media_image_description" />
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <TextView
+            <com.army.newdiary.ui.common.custom.MarkerPreview
+                android:id="@+id/preview_marker_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="완료"
-                android:textColor="@color/white"
-                android:textSize="@dimen/complete_button_text_size"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/complete_btn"
+                android:layout_width="@dimen/complete_button_width_size"
+                android:layout_height="@dimen/complete_button_height_size"
+                android:layout_marginTop="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="100dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/preview_marker_layout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="완료"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/complete_button_text_size"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

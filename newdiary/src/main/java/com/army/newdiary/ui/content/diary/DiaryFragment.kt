@@ -1,5 +1,6 @@
 package com.army.newdiary.ui.content.diary
 
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.army.newdiary.databinding.FragmentDiaryBinding
@@ -9,7 +10,12 @@ import kotlinx.coroutines.flow.onEach
 
 class DiaryFragment : BaseFragment<FragmentDiaryBinding>(FragmentDiaryBinding::inflate) {
 
+    private val diaryViewModel: DiaryViewModel by viewModels()
+
     override fun initAfterBinding() {
+        binding.diaryVm = diaryViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
         buttonSetting()
         initObserve()
     }
