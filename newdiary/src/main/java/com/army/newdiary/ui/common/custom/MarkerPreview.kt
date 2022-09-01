@@ -1,6 +1,7 @@
 package com.army.newdiary.ui.common.custom
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
@@ -39,6 +40,14 @@ class MarkerPreview(
         imageList.forEach {
             Glide.with(context)
                 .load(id)
+                .into(it)
+        }
+    }
+
+    fun setMarkerImage(drawable: Drawable) {
+        imageList.forEach {
+            Glide.with(context)
+                .load(drawable)
                 .into(it)
         }
     }
