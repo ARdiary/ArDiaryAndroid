@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/guide_layout_padding"
+    tools:context=".ui.content.guestbook.GuestBookFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preview_marker"
+        android:textColor="@color/black"
+        android:textSize="@dimen/guide_small_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/preview_marker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2">
+
+        <ImageView
+            android:id="@+id/default_image_iv"
+            android:layout_width="@dimen/preview_select_image_default_size"
+            android:layout_height="@dimen/preview_select_image_default_size"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/marker"
+            android:layout_width="@dimen/preview_marker_icon_size"
+            android:layout_height="@dimen/preview_marker_icon_size"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/shadow"
+            app:layout_constraintStart_toEndOf="@id/default_image_iv" />
+
+        <ImageView
+            android:id="@+id/marker_image_iv"
+            android:layout_width="@dimen/preview_select_image_tiny_size"
+            android:layout_height="@dimen/preview_select_image_tiny_size"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintEnd_toEndOf="@id/marker"
+            app:layout_constraintStart_toStartOf="@id/marker"
+            app:layout_constraintTop_toTopOf="@id/marker" />
+
+        <ImageView
+            android:id="@+id/shadow"
+            android:layout_width="@dimen/preview_shadow_icon_size"
+            android:layout_height="@dimen/preview_shadow_icon_size"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/shadow_image_iv"
+            android:layout_width="@dimen/preview_select_image_small_size"
+            android:layout_height="@dimen/preview_select_image_small_size"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintEnd_toEndOf="@id/shadow"
+            app:layout_constraintStart_toStartOf="@id/shadow"
+            app:layout_constraintTop_toTopOf="@id/shadow" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
