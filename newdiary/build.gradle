@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
@@ -8,7 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        /*applicationId "com.army.newdiary"*/
+        applicationId "com.army.newdiary"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -32,6 +32,9 @@ android {
         jvmTarget = '1.8'
     }
     viewBinding {
+        enabled = true
+    }
+    dataBinding {
         enabled = true
     }
 }
