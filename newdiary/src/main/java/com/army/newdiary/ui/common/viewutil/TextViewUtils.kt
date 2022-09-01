@@ -14,3 +14,15 @@ fun TextView.setDday(date: Date) {
 
     text = resources.getString(R.string.left_date, dDay.toInt())
 }
+
+@BindingAdapter("setDate")
+fun TextView.setDate(date: Date) {
+    val d = "${date.year}-${String.format("%02d", date.month)}-${String.format("%02d", date.date)}"
+    text = d
+}
+
+@BindingAdapter("setTextLength")
+fun TextView.setTextLength(text: Int) {
+    val d = "${text}/300"
+    this.text = d
+}
