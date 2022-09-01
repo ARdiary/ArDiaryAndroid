@@ -14,6 +14,7 @@
 
     <!--에러처리-->
     <string name="default_fail">네트워크연결이 원활하지 않습니다</string>
+    <string name="set_dday_error">현재보다 미래로 설정해 주세요!</string>
 
     <!-- 로그인 -->
     <string name="login">로그인</string>
@@ -41,4 +42,8 @@
     <string name="preview_map">맵 미리보기</string>
     <string name="input_text">텍스트를 입력해 주세요</string>
     <string name="media_image_description">사진/동영상\n추가</string>
+
+    <!--textView Util-->
+    <string name="left_date">%d일</string>
+
 </resources>
