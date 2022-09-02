@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.MyProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,8 +27,8 @@
             android:id="@+id/cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="100dp"
             android:layout_marginTop="12dp"
+            app:cardCornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/screen_title_tv">
@@ -38,18 +38,20 @@
                 android:layout_width="200dp"
                 android:layout_height="180dp"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_profile"
+                android:tint="@color/black"
+                tools:ignore="UseAppTint" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/nickname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="name"
             android:textColor="@color/black"
             android:textSize="@dimen/profile_title"
             android:textStyle="italic"
-            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
@@ -58,19 +60,19 @@
             android:id="@+id/edit_profile_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="1dp"
-            android:layout_marginRight="12dp"
-            app:layout_constraintTop_toBottomOf="@id/nickname_tv"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nickname_tv">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
                 android:paddingLeft="14dp"
+                android:paddingTop="4dp"
                 android:paddingRight="14dp"
+                android:paddingBottom="4dp"
                 android:text="프로필편집"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -80,9 +82,9 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bottom_line"
             android:paddingTop="@dimen/profile_padding_top"
             android:paddingBottom="@dimen/profile_padding_bottom"
-            android:background="@drawable/bottom_line"
             app:layout_constraintTop_toBottomOf="@id/edit_profile_btn">
 
             <TextView
@@ -95,75 +97,25 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/friend_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:menuIcon="@drawable/ic_friends"
+            app:menuTitle="@string/profile_friend_list" />
 
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_friend_list"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
-
-        <LinearLayout
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/like_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friend_list">
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_like_list"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/friend_list"
+            app:menuIcon="@drawable/ic_heart_reversed"
+            app:menuTitle="@string/profile_like_list" />
 
         <LinearLayout
             android:id="@+id/blank_layout"
@@ -173,144 +125,49 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/like_list"/>
-        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/like_list" />
+
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/notify_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
+            app:iconTint="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blank_layout">
+            app:layout_constraintTop_toBottomOf="@+id/blank_layout"
+            app:menuIcon="@drawable/ic_bell"
+            app:menuTitle="@string/profile_notify_setting" />
 
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_notify_setting"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
-        <LinearLayout
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/customer_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/notify_setting">
+            app:layout_constraintTop_toBottomOf="@+id/notify_setting"
+            app:menuIcon="@drawable/ic_question"
+            app:menuTitle="@string/profile_customer_service" />
 
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_customer_service"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
-
-        <LinearLayout
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customer_service">
+            app:layout_constraintTop_toBottomOf="@+id/customer_service"
+            app:menuIcon="@drawable/ic_logout"
+            app:menuTitle="@string/profile_logout" />
 
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_logout"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
-        <LinearLayout
+        <com.army.ardiary.ui.profile.custom.MenuItem
             android:id="@+id/withdrawal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/profile_padding_top"
-            android:paddingBottom="@dimen/profile_padding_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logout">
+            app:layout_constraintTop_toBottomOf="@+id/logout"
+            app:menuIcon="@drawable/ic_power_off"
+            app:menuTitle="@string/profile_withdrawal" />
 
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginLeft="@dimen/profile_margin_left"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile_withdrawal"
-                android:textColor="@color/black"
-                android:textSize="@dimen/profile_item" />
-
-            <ImageView
-                android:layout_width="@dimen/profile_icon"
-                android:layout_height="@dimen/profile_icon"
-                android:layout_marginRight="@dimen/profile_margin_right"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
