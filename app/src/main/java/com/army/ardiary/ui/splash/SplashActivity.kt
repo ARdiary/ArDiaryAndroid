@@ -28,7 +28,7 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding:
         permissionSetting()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivityWithClear(MyProfileActivity::class.java)
+            startActivityWithClear(LoginActivity::class.java)
             //authViewModel.autoLogin()
         }, 2000)
     }

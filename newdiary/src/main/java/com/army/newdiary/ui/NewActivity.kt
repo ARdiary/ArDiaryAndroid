@@ -1,21 +1,21 @@
 package com.army.newdiary.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.army.newdiary.R
 import com.army.newdiary.databinding.ActivityNewBinding
 import com.army.newdiary.ui.content.SelectFragment
-import com.army.newdiary.ui.viewmodel.NewDiaryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewActivity : AppCompatActivity() {
     lateinit var newActivityBinding: ActivityNewBinding
-    lateinit var viewModel: NewDiaryViewModel
+    private val viewModel: NewDiaryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         newActivityBinding = ActivityNewBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this).get(NewDiaryViewModel::class.java)
 
         supportFragmentManager
             .beginTransaction()

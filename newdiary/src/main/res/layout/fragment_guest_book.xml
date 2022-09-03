@@ -1,234 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/guide_layout_padding"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.content.guestbook.GuestBookFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="@dimen/back_button_icon"
-        android:layout_height="@dimen/back_button_icon"
-        android:src="@mipmap/ic_launcher"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/back_button" />
+    <data>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="방명록 작성"
-        android:textColor="@color/black"
-        android:textSize="@dimen/guide_large_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back_btn" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/name_cv"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="@color/primary"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/name_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large_size" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/create_date_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:text="2022-05-02"
-        android:textSize="@dimen/edit_text_mini_size"
-        android:layout_marginBottom="6dp"
-        app:layout_constraintBottom_toTopOf="@id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        app:cardBackgroundColor="@color/secondary"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_cv">
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/content_et"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@color/transparent"
-            android:gravity="start"
-            android:hint="@string/input_text"
-            android:maxLength="300"
-            android:maxLines="3"
-            android:nestedScrollingEnabled="true"
-            android:scrollbars="vertical"
-            android:overScrollMode="ifContentScrolls"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="4dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="@dimen/edit_text_size" />
-
-        <TextView
-            android:id="@+id/text_count_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:text="0/300"
-            android:paddingEnd="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/edit_text_mini_size" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/preview_marker"
-        android:textColor="@color/black"
-        android:textSize="@dimen/guide_small_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        <variable
+            name="guestBookVm"
+            type="com.army.newdiary.ui.content.guestbook.GuestBookViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/preview_marker_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2">
+        android:layout_height="match_parent"
+        android:padding="@dimen/guide_layout_padding"
+        tools:context=".ui.content.guestbook.GuestBookFragment">
 
         <ImageView
-            android:id="@+id/default_image_iv"
-            android:layout_width="@dimen/preview_select_image_default_size"
-            android:layout_height="@dimen/preview_select_image_default_size"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/back_button_icon"
+            android:layout_height="@dimen/back_button_icon"
+            android:clickable="true"
+            android:contentDescription="@string/back_button"
+            android:focusable="true"
+            android:src="@drawable/ic_arrow_prev"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/marker"
-            android:layout_width="@dimen/preview_marker_icon_size"
-            android:layout_height="@dimen/preview_marker_icon_size"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/shadow"
-            app:layout_constraintStart_toEndOf="@id/default_image_iv" />
-
-        <ImageView
-            android:id="@+id/marker_image_iv"
-            android:layout_width="@dimen/preview_select_image_tiny_size"
-            android:layout_height="@dimen/preview_select_image_tiny_size"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_launcher_foreground"
-            app:layout_constraintEnd_toEndOf="@id/marker"
-            app:layout_constraintStart_toStartOf="@id/marker"
-            app:layout_constraintTop_toTopOf="@id/marker" />
-
-        <ImageView
-            android:id="@+id/shadow"
-            android:layout_width="@dimen/preview_shadow_icon_size"
-            android:layout_height="@dimen/preview_shadow_icon_size"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <ImageView
-            android:id="@+id/shadow_image_iv"
-            android:layout_width="@dimen/preview_select_image_small_size"
-            android:layout_height="@dimen/preview_select_image_small_size"
-            android:src="@drawable/ic_launcher_foreground"
-            app:layout_constraintEnd_toEndOf="@id/shadow"
-            app:layout_constraintStart_toStartOf="@id/shadow"
-            app:layout_constraintTop_toTopOf="@id/shadow" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/preview_map"
-        android:textColor="@color/black"
-        android:textSize="@dimen/guide_small_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/preview_marker_layout" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:minHeight="200dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintTop_toBottomOf="@id/textView3"
-        tools:layout_editor_absoluteX="18dp">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/preview_map_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/complete_btn"
-        android:layout_width="@dimen/complete_button_width_size"
-        android:layout_height="@dimen/complete_button_height_size"
-        android:layout_marginTop="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardBackgroundColor="@color/primary"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="완료"
+            android:layout_marginTop="36dp"
+            android:text="방명록 작성"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_large_size"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/complete_button_text_size" />
-    </androidx.cardview.widget.CardView>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_btn" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/name_cv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView">
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large_size" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/create_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="6dp"
+            android:textSize="@dimen/edit_text_mini_size"
+            app:layout_constraintBottom_toTopOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:setDate="@{guestBookVm.currentDate}"
+            tools:text="2022-05-02" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:cardBackgroundColor="@color/secondary"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_cv">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/content_et"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/transparent"
+                android:gravity="start"
+                android:hint="@string/input_text"
+                android:maxLength="300"
+                android:maxLines="3"
+                android:nestedScrollingEnabled="true"
+                android:overScrollMode="ifContentScrolls"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:scrollbars="vertical"
+                android:text="@={guestBookVm.contentText}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/edit_text_size" />
+
+            <TextView
+                android:id="@+id/text_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/edit_text_mini_size"
+                app:setTextLength="@{guestBookVm.contentText.length()}"
+                tools:text="0/300" />
+        </androidx.cardview.widget.CardView>
+
+        <com.army.newdiary.ui.common.custom.MarkerPreview
+            android:id="@+id/preview_marker_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/preview_marker"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_small_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/preview_map"
+            android:textColor="@color/black"
+            android:textSize="@dimen/guide_small_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preview_marker_layout" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minHeight="200dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/textView3"
+            tools:layout_editor_absoluteX="18dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/preview_map_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/complete_btn"
+            android:layout_width="@dimen/complete_button_width_size"
+            android:layout_height="@dimen/complete_button_height_size"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="완료"
+                android:textColor="@color/white"
+                android:textSize="@dimen/complete_button_text_size"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

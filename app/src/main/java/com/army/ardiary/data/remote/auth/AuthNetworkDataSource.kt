@@ -2,7 +2,7 @@ package com.army.ardiary.data.remote.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.army.ardiary.ApplicationClass.Companion.retrofit
+import com.army.ardiary.ApplicationClass.Companion.arRetrofit
 import com.army.ardiary.data.NetworkState
 import com.army.ardiary.data.local.entities.User
 import com.army.ardiary.data.remote.auth.vo.AuthResponse
@@ -17,7 +17,7 @@ class AuthNetworkDataSource {
     val networkState: LiveData<NetworkState> get() = _networkState
     val downloadAuthResponse: LiveData<AuthResponse> get() = _downloadAuthResponse
 
-    private val authService = retrofit.create(AuthRetrofitInterface::class.java)
+    private val authService = arRetrofit.create(AuthRetrofitInterface::class.java)
 
     fun login(user: User){
         val loginCall = authService.login(user)

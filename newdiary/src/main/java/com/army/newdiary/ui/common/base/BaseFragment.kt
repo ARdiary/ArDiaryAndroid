@@ -1,4 +1,4 @@
-package com.army.newdiary.ui
+package com.army.newdiary.ui.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.viewbinding.ViewBinding
 import com.army.newdiary.R
-import com.army.newdiary.ui.viewmodel.NewDiaryViewModel
+import com.army.newdiary.ui.NewDiaryViewModel
 import com.army.newdiary.utils.Inflate
-
 
 abstract class BaseFragment<VB : ViewBinding>(
     private val inflate: Inflate<VB>
@@ -21,7 +20,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     private var _binding: VB? = null
     protected val binding get() = _binding!!
 
-    lateinit var viewModel: NewDiaryViewModel
+    val rootViewModel: NewDiaryViewModel by activityViewModels()
     lateinit var parentActivity: FragmentActivity
 
     override fun onCreateView(
@@ -31,9 +30,6 @@ abstract class BaseFragment<VB : ViewBinding>(
     ): View? {
         _binding = inflate.invoke(inflater, container, false)
         parentActivity = requireActivity()
-
-        viewModel = ViewModelProvider(parentActivity)
-            .get(NewDiaryViewModel::class.java)
 
         return binding.root
     }
@@ -50,21 +46,22 @@ abstract class BaseFragment<VB : ViewBinding>(
 
     protected abstract fun initAfterBinding()
 
-    fun showToast(message: String)
-        = Toast
-            .makeText(parentActivity, message, Toast.LENGTH_SHORT)
-            .show()
+    fun showToast(message: String) = Toast.makeText(parentActivity, message, Toast.LENGTH_SHORT)
+        .show()
 
-    fun changeFragment(fragment: Fragment)
-        = parentActivity
-            .supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_layout, fragment)
-            .addToBackStack(null)
-            .commitAllowingStateLoss()
+    fun changeFragment(fragment: Fragment) = parentFragmentManager
+        .beginTransaction()
+        .setCustomAnimations(
+            R.anim.slide_in,
+            R.anim.fade_out,
+            R.anim.fade_in,
+            R.anim.slide_out
+        )
+        .replace(R.id.fragment_layout, fragment)
+        .addToBackStack(null)
+        .commitAllowingStateLoss()
 
-    fun removeTopFragment()
-        = parentActivity
-            .supportFragmentManager
-            .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    fun removeTopFragment() = parentActivity
+        .supportFragmentManager
+        .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 }
