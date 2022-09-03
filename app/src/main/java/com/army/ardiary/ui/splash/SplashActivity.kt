@@ -10,11 +10,11 @@ import com.army.ardiary.databinding.ActivitySplashBinding
 import com.army.ardiary.ui.BaseActivity
 import com.army.ardiary.ui.login.LoginActivity
 import com.army.ardiary.ui.main.MainActivity
+import com.army.ardiary.ui.profile.MyProfileActivity
 import com.army.ardiary.utils.getJwt
 import com.army.ardiary.viewmodel.AuthViewModel
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
-
 
 class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate){
 
