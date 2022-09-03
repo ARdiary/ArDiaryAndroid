@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.army.newdiary.R
 import com.army.newdiary.databinding.ActivityNewBinding
 import com.army.newdiary.ui.content.SelectFragment
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class NewActivity : AppCompatActivity() {
     lateinit var newActivityBinding: ActivityNewBinding
     private val viewModel: NewDiaryViewModel by viewModels()
