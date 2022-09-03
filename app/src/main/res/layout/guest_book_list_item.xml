@@ -1,79 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="18dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="18dp">
 
     <ImageView
         android:id="@+id/diary_map_iv"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:src="@drawable/ic_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/guest_book_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/profile_margin_left"
+        android:layout_marginTop="@dimen/profile_padding_top"
         android:text="title"
         android:textColor="@color/black"
         android:textSize="@dimen/profile_title"
-        android:layout_marginStart="@dimen/profile_margin_left"
-        android:layout_marginTop="@dimen/profile_padding_top"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/diary_user_name_tv"
-        app:layout_constraintStart_toEndOf="@id/diary_map_iv"/>
+        app:layout_constraintStart_toEndOf="@id/diary_map_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/diary_user_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/profile_margin_left"
         android:text="name"
         android:textColor="@color/black"
         android:textSize="@dimen/profile_item"
-        android:layout_marginStart="@dimen/profile_margin_left"
-        app:layout_constraintTop_toBottomOf="@id/guest_book_title_tv"
-        app:layout_constraintStart_toEndOf="@id/diary_map_iv"/>
+        app:layout_constraintStart_toEndOf="@id/diary_map_iv"
+        app:layout_constraintTop_toBottomOf="@id/guest_book_title_tv" />
+
     <TextView
         android:id="@+id/create_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/profile_margin_left"
         android:text="name"
         android:textColor="@color/black"
         android:textSize="@dimen/profile_item"
-        android:layout_marginStart="@dimen/profile_margin_left"
-        app:layout_constraintTop_toBottomOf="@id/guest_book_title_tv"
-        app:layout_constraintStart_toEndOf="@id/diary_user_name_tv"/>
+        app:layout_constraintStart_toEndOf="@id/diary_user_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/guest_book_title_tv" />
 
     <TextView
         android:id="@+id/diary_description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/profile_margin_left"
         android:text="name"
         android:textColor="@color/black"
         android:textSize="@dimen/profile_item"
-        android:layout_marginStart="@dimen/profile_margin_left"
-        app:layout_constraintTop_toBottomOf="@id/diary_user_name_tv"
-        app:layout_constraintStart_toEndOf="@id/diary_map_iv"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintStart_toEndOf="@id/diary_map_iv"
+        app:layout_constraintTop_toBottomOf="@id/diary_user_name_tv" />
+
     <ImageView
         android:id="@+id/like_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:scaleType="fitCenter"
-        android:visibility="gone"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_heart_filled"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary" />
 
     <ImageView
         android:id="@+id/unlike_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_heart_outlined"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary" />
 </androidx.constraintlayout.widget.ConstraintLayout>
