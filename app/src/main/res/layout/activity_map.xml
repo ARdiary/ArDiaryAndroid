@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5559b4"
     android:orientation="vertical">
 
+    <!-- 안에 자유롭게 꾸며보세요 ㅎㅎ -->
     <FrameLayout
         android:id="@+id/bg"
         android:layout_width="match_parent"
@@ -14,11 +13,11 @@
         android:gravity="center">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/list"
-            android:name="com.army.ardiary.ui.main.camera.ArFragment"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/fragment_ar" />
+            android:layout_gravity="top|center_horizontal" />
 
         <RelativeLayout
             android:id="@+id/Button1"
@@ -39,12 +38,11 @@
 
             <TextView
                 android:id="@+id/main_text"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="MyAR"
+                android:text="인하대학교 용현캠퍼스"
                 android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
@@ -56,19 +54,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:src="@drawable/ic_launcher_background" />
-
         </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/Button11"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="35dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/circle_button" />
     </FrameLayout>
 
     <include layout="@layout/navi_header" />

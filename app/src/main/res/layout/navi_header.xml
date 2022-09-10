@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerView"
+    android:layout_width="302dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#5559b4"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+        <!-- 맨 위 보라색 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#9F9FEC"
+            android:orientation="horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/round_button"
+            android:orientation="horizontal" />
+
+        <!-- 가로 닉네임 레이아웃 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_iv"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                android:id="@+id/nick_text"
+                android:layout_width="121dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/circle_iv"
+                android:gravity="center_vertical|left"
+                android:text="inpink"
+                android:textColor="#FFFFFF"
+                android:textSize="23dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_profile"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/nick_text"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
+
+
+        <!--다이어리-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="140dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/diary_text"
+                android:layout_width="121dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="내 다이어리"
+                android:textColor="#3C3C3C"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:id="@+id/my_diary_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="75dp"
+                android:layout_toRightOf="@id/diary_text"
+                android:src="@drawable/ic_launcher_background" />
+        </RelativeLayout>
+
+        <!--내 타임캡슐-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="210dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/capsule_text"
+                android:layout_width="121dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="내 타임캡슐"
+                android:textColor="#3C3C3C"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:id="@+id/my_capsule_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="75dp"
+                android:layout_toRightOf="@id/capsule_text"
+                android:src="@drawable/ic_launcher_background" />
+
+
+        </RelativeLayout>
+
+        <!--구분선-->
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="290dp"
+            android:background="#80674040" />
+
+        <!--공지사항-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="300dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/notice_text"
+                android:layout_width="121dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="공지사항"
+                android:textColor="#3C3C3C"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:id="@+id/notice_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="75dp"
+                android:layout_toRightOf="@id/notice_text"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="370dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/camera_text"
+                android:layout_width="121dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="카메라"
+                android:textColor="#3C3C3C"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:id="@+id/camera_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="75dp"
+                android:layout_toRightOf="@id/camera_text"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
+
+        <!--하단 설정-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/settings_text"
+                android:layout_width="121dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="설정"
+                android:textColor="#3C3C3C"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:id="@+id/settings_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="75dp"
+                android:layout_toRightOf="@id/settings_text"
+                android:src="@drawable/ic_launcher_background" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

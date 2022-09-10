@@ -5,6 +5,7 @@ import android.view.View
 import com.army.ardiary.ApplicationClass.Companion.TAG
 import com.army.ardiary.databinding.ActivityLoginBinding
 import com.army.ardiary.ui.BaseActivity
+import com.army.ardiary.ui.main.MainActivity
 import com.army.ardiary.ui.profile.MyProfileActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
@@ -36,7 +37,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         }
     }
 
-    private val callback : (OAuthToken?, Throwable?) -> Unit = { token, error ->
+    private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         if (error != null) {
             error.printStackTrace()
         } else if (token != null) {
@@ -45,6 +46,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 //viewModel?.addKakaoUser(token.accessToken, kakaoId)
             }
             Log.d(TAG, "로그인성공 - 토큰 $token")
+            startActivityWithClear(MainActivity::class.java)
         }
     }
 }

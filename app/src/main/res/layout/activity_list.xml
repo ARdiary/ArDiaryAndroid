@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    >
 
     <!--상단 바 고정됨-->
     <RelativeLayout
@@ -13,7 +15,9 @@
         android:layout_height="50dp"
         android:background="@drawable/middle_round_button"
         android:elevation="15dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+
+        >
 
         <ImageButton
             android:id="@+id/back_btn"
@@ -22,7 +26,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="23dp"
-            android:background="@drawable/wave_layout" />
+            android:background="@drawable/ic_arrow_prev" />
 
         <TextView
             android:id="@+id/diarylist_text"
@@ -32,7 +36,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="Diary Lists"
             android:textColor="#FFFFFF"
-            android:textSize="27dp" />
+            android:textSize="27dp"/>
 
         <ImageButton
             android:id="@+id/btnSwitch"
@@ -59,6 +63,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp" />
+
+
         </RelativeLayout>
+
+
     </ScrollView>
 </LinearLayout>
