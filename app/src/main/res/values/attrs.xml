@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProfileCustomMenuItem">
+        <attr name="onClickButton" format="string" />
+        <attr name="menuTitle" format="string" />
+        <attr name="menuIcon" format="reference" />
+    </declare-styleable>
+</resources>
