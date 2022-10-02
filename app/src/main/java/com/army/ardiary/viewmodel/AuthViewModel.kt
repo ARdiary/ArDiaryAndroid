@@ -1,27 +1,33 @@
 package com.army.ardiary.viewmodel
 
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.army.ardiary.data.NetworkState
-import com.army.ardiary.data.local.entities.User
-import com.army.ardiary.data.remote.auth.AuthNetworkDataSource
-import com.army.ardiary.data.remote.auth.vo.AuthResponse
+import androidx.lifecycle.viewModelScope
+import com.army.ardiary.domain.model.User
+import com.army.ardiary.domain.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AuthViewModel:ViewModel() {
-    private val authNetworkDataSource = AuthNetworkDataSource()
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+) : ViewModel() {
 
-    var authResponse: LiveData<AuthResponse>
-            = authNetworkDataSource.downloadAuthResponse
+    fun login(email: String) {
+        viewModelScope.launch {
+            val user = User(email)
+            authRepository.login(user)
+                .onSuccess { Log.d("Tester", "login success: $it") }
+                .onFailure { signUp(user) }
+        }
+    }
 
-    var networkState: LiveData<NetworkState>
-            = authNetworkDataSource.networkState
-
-    fun autoLogin()
-            = authNetworkDataSource.autoLogin()
-
-    fun login(user: User)
-            = authNetworkDataSource.login(user)
-
-    fun signUp(user: User)
-            = authNetworkDataSource.signUp(user)
+    private fun signUp(user: User) {
+        viewModelScope.launch {
+            authRepository.signUp(user = user)
+                .onSuccess { Log.d("Tester", "signUp success: $it") }
+                .onFailure { Log.d("Tester", "signUp fail: $it") }
+        }
+    }
 }

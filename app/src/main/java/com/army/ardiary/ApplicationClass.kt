@@ -3,50 +3,27 @@ package com.army.ardiary
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.army.ardiary.config.XAccessTokenInterceptor
 import com.kakao.sdk.common.KakaoSdk
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class ApplicationClass : Application() {
-    companion object{
+    companion object {
         const val X_ACCESS_TOKEN: String = "X-ACCESS-TOKEN"         // JWT Token Key
+        const val X_REFRESH_TOKEN: String = "X-REFRESH-TOKEN"         // JWT Token Key
         const val TAG: String = "DIARY-APP"                      // Log, SharedPreference
         const val APP_DATABASE = "$TAG-DB"
 
-        const val DEV_URL: String = "https://www.naver.com"       // 테스트 서버 주소
+        const val DEV_URL: String = "http://3.39.158.43:8088/"       // 테스트 서버 주소
         const val PROD_URL: String = "url"    // 실서버 주소
         const val BASE_URL: String = DEV_URL
-        const val KAKAO_URL: String = "https://www.naver.com";       // 테스트 서버 주소
 
         lateinit var mSharedPreferences: SharedPreferences
-        lateinit var arRetrofit: Retrofit
-        lateinit var kakaoRetrofit: Retrofit
     }
 
     override fun onCreate() {
         super.onCreate()
-        KakaoSdk.init(this,getString(R.string.kakao_app_key))
-
-        val client: OkHttpClient = OkHttpClient.Builder()
-            .readTimeout(30000, TimeUnit.MILLISECONDS)
-            .connectTimeout(30000, TimeUnit.MILLISECONDS)
-            .addNetworkInterceptor(XAccessTokenInterceptor()) // JWT 자동 헤더 전송
-            .build()
-
-        arRetrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        kakaoRetrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        KakaoSdk.init(this, getString(R.string.kakao_app_key))
 
         mSharedPreferences = applicationContext.getSharedPreferences(TAG, Context.MODE_PRIVATE)
     }
