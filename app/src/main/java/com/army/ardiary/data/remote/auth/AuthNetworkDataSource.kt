@@ -1,71 +1,11 @@
 package com.army.ardiary.data.remote.auth
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.army.ardiary.ApplicationClass.Companion.arRetrofit
-import com.army.ardiary.data.NetworkState
-import com.army.ardiary.data.local.entities.User
-import com.army.ardiary.data.remote.auth.vo.AuthResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.army.ardiary.data.remote.auth.dto.AuthDto
+import com.army.ardiary.data.remote.auth.dto.UserDto
 
-class AuthNetworkDataSource {
-    private val _networkState = MutableLiveData<NetworkState>()
-    private val _downloadAuthResponse = MutableLiveData<AuthResponse>()
+interface AuthNetworkDataSource {
 
-    val networkState: LiveData<NetworkState> get() = _networkState
-    val downloadAuthResponse: LiveData<AuthResponse> get() = _downloadAuthResponse
+    suspend fun login(userDto: UserDto): AuthDto
 
-    private val authService = arRetrofit.create(AuthRetrofitInterface::class.java)
-
-    fun login(user: User){
-        val loginCall = authService.login(user)
-        _networkState.postValue(NetworkState.LOADING)
-
-        loginCall.enqueue(object : Callback<AuthResponse> {
-            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
-                _downloadAuthResponse.postValue(response.body() as AuthResponse)
-                _networkState.postValue(NetworkState.LOADED)
-            }
-
-            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                t.printStackTrace()
-                _networkState.postValue(NetworkState.ERROR)
-            }
-        })
-    }
-
-    fun autoLogin(){
-        val autoLoginCall = authService.autoLogin()
-        _networkState.postValue(NetworkState.LOADING)
-
-        autoLoginCall.enqueue(object : Callback<AuthResponse> {
-            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
-                _downloadAuthResponse.postValue(response.body() as AuthResponse)
-                _networkState.postValue(NetworkState.LOADED)
-            }
-
-            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                t.printStackTrace()
-                _networkState.postValue(NetworkState.ERROR)
-            }
-        })
-    }
-    fun signUp(user: User) {
-        val signUpCall = authService.signUp(user)
-        _networkState.postValue(NetworkState.LOADING)
-
-        signUpCall.enqueue(object : Callback<AuthResponse> {
-            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
-                _downloadAuthResponse.postValue(response.body() as AuthResponse)
-                _networkState.postValue(NetworkState.LOADED)
-            }
-
-            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                t.printStackTrace()
-                _networkState.postValue(NetworkState.ERROR)
-            }
-        })
-    }
+    suspend fun signUp(userDto: UserDto): AuthDto
 }
