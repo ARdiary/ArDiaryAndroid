@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ArDiary"
         android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup,android:name">
+        tools:replace="android:name">
         <activity
             android:name=".ui.newobj.NewObjectActivity"
             android:exported="false" />

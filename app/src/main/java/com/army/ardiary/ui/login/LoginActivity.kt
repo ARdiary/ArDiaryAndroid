@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import com.army.ardiary.ApplicationClass.Companion.TAG
 import com.army.ardiary.databinding.ActivityLoginBinding
 import com.army.ardiary.ui.BaseActivity
+import com.army.ardiary.ui.main.MainActivity
 import com.army.ardiary.ui.profile.MyProfileActivity
 import com.army.ardiary.utils.saveJwt
 import com.army.ardiary.viewmodel.AuthViewModel
@@ -61,6 +62,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 }
                 //viewModel?.addKakaoUser(token.accessToken, kakaoId)
             }
+            Log.d(TAG, "로그인성공 - 토큰 $token")
+            startActivityWithClear(MainActivity::class.java)
         }
     }
 }
