@@ -5,11 +5,38 @@ import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
 import com.army.ardiary.databinding.ActivityMainBinding
 import com.army.ardiary.ui.BaseActivity
+import com.army.ardiary.ui.main.diary.diarylist.DiaryListActivity
+import com.army.ardiary.ui.main.diary.timecasulelist.TimeCapsuleListActivity
+import com.army.ardiary.ui.main.notification.NotificationActivity
+import com.army.ardiary.ui.profile.MyProfileActivity
+import com.army.newdiary.ui.NewActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     override fun initAfterBinding() {
         //TabLayoutMediator
         initAdapter()
+        initDrawer()
+        initButton()
+    }
+
+    private fun initButton() {
+        with(binding) {
+            btnNotification.setOnClickListener { startNextActivity(NotificationActivity::class.java) }
+            btnCamera.setOnClickListener { startNextActivity(NewActivity::class.java) }
+        }
+    }
+
+    private fun initDrawer() {
+        with(binding) {
+            btnSideMenu.setOnClickListener { if (!drawerLayout.isOpen) drawerLayout.open() }
+        }
+        with(binding.drawer) {
+            rlProfile.setOnClickListener { startNextActivity(MyProfileActivity::class.java) }
+            btnDiary.setOnClickListener { startNextActivity(DiaryListActivity::class.java) }
+            btnNotice.setOnClickListener { showToast("공지사항!") }
+            btnSettings.setOnClickListener { showToast("설정!") }
+            btnTimeCapsule.setOnClickListener { startNextActivity(TimeCapsuleListActivity::class.java) }
+        }
     }
 
     private fun initAdapter() {
