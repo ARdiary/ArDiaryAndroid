@@ -2,11 +2,11 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!--profile size-->
-    <dimen name="profile_title">24sp</dimen>
+    <dimen name="profile_title">20sp</dimen>
     <dimen name="profile_margin_left">18sp</dimen>
     <dimen name="profile_margin_right">18sp</dimen>
     <dimen name="profile_padding_top">8sp</dimen>
     <dimen name="profile_padding_bottom">8sp</dimen>
-    <dimen name="profile_item">20sp</dimen>
+    <dimen name="profile_item">16sp</dimen>
     <dimen name="profile_icon">50dp</dimen>
 </resources>
