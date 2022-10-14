@@ -1,20 +1,40 @@
 package com.army.ardiary.ui.main
 
-import android.widget.ImageButton
-import android.widget.ImageView
-import com.army.ardiary.R
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
+import androidx.viewpager2.widget.ViewPager2
 import com.army.ardiary.databinding.ActivityMainBinding
 import com.army.ardiary.ui.BaseActivity
-import com.army.ardiary.ui.main.diary.diarylist.DiaryListActivity
-import com.army.ardiary.ui.main.map.MapActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     override fun initAfterBinding() {
         //TabLayoutMediator
-        val my_btn: ImageButton = findViewById<ImageButton>(R.id.my_diary_btn)
-        val map_btn: ImageView = findViewById<ImageView>(R.id.Button11)
+        initAdapter()
+    }
 
-        my_btn.setOnClickListener { startNextActivity(DiaryListActivity::class.java) }
-        map_btn.setOnClickListener { startNextActivity(MapActivity::class.java) }
+    private fun initAdapter() {
+        val adapter = MainVPAdapter(supportFragmentManager, this.lifecycle)
+
+        binding.vpContent.adapter = adapter
+        binding.vpContent.offscreenPageLimit = adapter.itemCount
+        binding.vpContent.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == 0) showAppName()
+                else hideAppName()
+            }
+        })
+    }
+
+    private fun showAppName() {
+        binding.tvAppName.isVisible = true
+        binding.btnSearch.isGone = true
+        binding.btnCamera.isVisible = true
+    }
+
+    private fun hideAppName() {
+        binding.tvAppName.isGone = true
+        binding.btnSearch.isVisible = true
+        binding.btnCamera.isGone = true
     }
 }

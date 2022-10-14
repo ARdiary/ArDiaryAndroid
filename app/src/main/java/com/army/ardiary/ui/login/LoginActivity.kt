@@ -20,6 +20,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     val kakaoOAuthApi = ""
     val kakaoGetTokenApi = ""
 
+    val tokens = listOf(
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBY2Nlc3MgVG9rZW4iLCJpZCI6MTAsImlhdCI6MTY2NTY3OTE5NywiZXhwIjoxNjY1NjgyNzk3fQ.9eF9pV3qcsHzpko-9BtsdG00Dzu01n40tiQf-zQw6uw",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjU2NzkxOTcsImV4cCI6MTY2NTc2NTU5N30.wxu7A0rM3j8uY8gVZwhy9LEfMvoY-l4iLJx7xHOf92o"
+    )
+
     private val authViewModel: AuthViewModel by viewModels()
 
     override fun initAfterBinding() {
@@ -32,7 +37,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
         when (v) {
             binding.loginSignUpTv -> startNextActivity(MyProfileActivity::class.java)
-            binding.loginSignInBtn -> login()
+            binding.loginSignInBtn -> {
+                saveJwt(tokens[0], tokens[1])
+                startNextActivity(MainActivity::class.java)
+                //login()
+            }
         }
     }
 
