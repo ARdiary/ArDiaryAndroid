@@ -1,10 +1,7 @@
- package com.army.ardiary.ui.main.map
+package com.army.ardiary.ui.main.map
 
-import android.app.ListActivity
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import com.army.ardiary.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,68 +10,38 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
- class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+internal class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
-     private lateinit var mMap: GoogleMap
+    private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
-
-
-        var my_btn : ImageButton = findViewById<ImageButton>(R.id.my_diary_btn)
-
-        my_btn.setOnClickListener {
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
-
-        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-     override fun onMapReady(googleMap: GoogleMap) {
-         mMap = googleMap
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
 
-         // Add a marker in Sydney and move the camera
-         val Seoul = LatLng(37.541, 126.986)
-         val Seoul2 = LatLng(37.641, 126.886)
-         //a val for how zoomed in you want to be on the map. Use zoom level 15f.
-         val zoomLevel = 20f
-
-
-         // Set the map type to Hybrid.
-
-         //addMarker
-         mMap.addMarker(
-             MarkerOptions()
-                 .position(Seoul)
-                 .title("Marker in Seoul"))
-
-         mMap.addMarker(
-             MarkerOptions()
-                 .position(Seoul2)
-                 .title("Marker in Seoul2"))
-
-
-         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Seoul,zoomLevel))
-         mMap.getUiSettings().setZoomControlsEnabled(true)
-
-         //길게 클릭했을 때 호출
-         setMapLongClick(mMap)
-     }
-
-
-     //길게 클릭했을 때 (저장 기능은 아직 x)
-     private fun setMapLongClick(map: GoogleMap) {
-         map.setOnMapLongClickListener { latLng ->
-             map.addMarker(
-                 MarkerOptions()
-                     .position(latLng)
-             )}
-
-
-     }
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(sydney)
+                .title("Marker in Sydney")
+        )
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
 }
