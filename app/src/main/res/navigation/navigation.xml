@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/matchFragment"
-        android:name="com.army.ardiary.ui.main.notification.NotificationFragment"
+        android:name="com.army.ardiary.ui.main.notification.NotificationActivity"
         android:label="matchFragment"/>
 
     <fragment
