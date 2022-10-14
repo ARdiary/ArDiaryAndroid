@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawerView"
     android:layout_width="302dp"
     android:layout_height="match_parent"
@@ -27,13 +28,14 @@
 
         <!-- 가로 닉네임 레이아웃 -->
         <RelativeLayout
+            android:id="@+id/rl_profile"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="4dp"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circle_iv"
+                android:id="@+id/iv_profile"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_alignParentLeft="true"
@@ -43,33 +45,35 @@
                 android:src="@drawable/ic_clock" />
 
             <TextView
-                android:id="@+id/nick_text"
+                android:id="@+id/tv_name"
                 android:layout_width="121dp"
                 android:layout_height="60dp"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/circle_iv"
+                android:layout_toRightOf="@+id/iv_profile"
                 android:gravity="center_vertical|left"
                 android:text="inpink"
                 android:textColor="#FFFFFF"
                 android:textSize="23dp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/circle_profile"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/nick_text"
+                android:layout_toRightOf="@+id/tv_name"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_profile"
+                app:tint="@color/white" />
 
         </RelativeLayout>
 
 
         <!--다이어리-->
         <RelativeLayout
+            android:id="@+id/btn_diary"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="140dp"
@@ -89,18 +93,20 @@
                 android:textColor="#3C3C3C"
                 android:textSize="18dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/my_diary_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="75dp"
                 android:layout_toRightOf="@id/diary_text"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_diary"
+                app:tint="@color/primary" />
         </RelativeLayout>
 
         <!--내 타임캡슐-->
         <RelativeLayout
+            android:id="@+id/btn_time_capsule"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="210dp"
@@ -120,14 +126,15 @@
                 android:textColor="#3C3C3C"
                 android:textSize="18dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/my_capsule_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="75dp"
                 android:layout_toRightOf="@id/capsule_text"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_time_capsule"
+                app:tint="@color/primary" />
 
 
         </RelativeLayout>
@@ -142,6 +149,7 @@
 
         <!--공지사항-->
         <RelativeLayout
+            android:id="@+id/btn_notice"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="300dp"
@@ -161,51 +169,21 @@
                 android:textColor="#3C3C3C"
                 android:textSize="18dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/notice_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="75dp"
                 android:layout_toRightOf="@id/notice_text"
-                android:src="@drawable/ic_launcher_background" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="370dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/camera_text"
-                android:layout_width="121dp"
-                android:layout_height="42dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_vertical|left"
-                android:text="카메라"
-                android:textColor="#3C3C3C"
-                android:textSize="18dp" />
-
-            <ImageButton
-                android:id="@+id/camera_btn"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="75dp"
-                android:layout_toRightOf="@id/camera_text"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_notice"
+                app:tint="@color/primary" />
 
         </RelativeLayout>
 
         <!--하단 설정-->
         <RelativeLayout
+            android:id="@+id/btn_settings"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
@@ -225,14 +203,15 @@
                 android:textColor="#3C3C3C"
                 android:textSize="18dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/settings_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="75dp"
-                android:layout_toRightOf="@id/settings_text"
-                android:src="@drawable/ic_launcher_background" />
+                android:layout_marginStart="75dp"
+                android:layout_toEndOf="@id/settings_text"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/primary" />
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
