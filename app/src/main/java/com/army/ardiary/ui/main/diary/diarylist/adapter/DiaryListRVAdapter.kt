@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.army.ardiary.databinding.ItemDiaryContentBinding
-import com.army.ardiary.databinding.ItemDiaryListBinding
+import com.army.ardiary.databinding.ItemDiaryContentGridBinding
 import com.army.ardiary.domain.model.DiaryContent
 import com.army.ardiary.ui.main.diary.diarylist.DiaryListActivity.Companion.LINEAR_VERTICAL
+import com.army.ardiary.ui.main.diary.diarylist.adapter.viewholder.DiaryContentGridViewHolder
 import com.army.ardiary.ui.main.diary.diarylist.adapter.viewholder.DiaryContentViewHolder
-import com.army.ardiary.ui.main.diary.diarylist.adapter.viewholder.DiaryListItemViewHolder
 
 class DiaryListRVAdapter : ListAdapter<DiaryContent, RecyclerView.ViewHolder>(diffUtil) {
 
@@ -25,8 +25,8 @@ class DiaryListRVAdapter : ListAdapter<DiaryContent, RecyclerView.ViewHolder>(di
             )
         )
         else
-            DiaryContentViewHolder(
-                ItemDiaryContentBinding.inflate(
+            DiaryContentGridViewHolder(
+                ItemDiaryContentGridBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
@@ -37,7 +37,7 @@ class DiaryListRVAdapter : ListAdapter<DiaryContent, RecyclerView.ViewHolder>(di
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is DiaryContentViewHolder -> holder.bind(currentList[position])
-            is DiaryContentViewHolder -> holder.bind(currentList[position])
+            is DiaryContentGridViewHolder -> holder.bind(currentList[position])
         }
     }
 
