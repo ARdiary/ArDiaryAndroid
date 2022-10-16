@@ -19,17 +19,29 @@ class DiaryListActivity :
     private val viewModel by viewModels<DiaryListViewModel>()
 
     override fun initAfterBinding() {
+        binding.viewModel = viewModel
         initAdapter()
         initObserver()
+        initButton()
+        binding.lifecycleOwner = this
+    }
+
+    private fun initButton() {
+        with(binding) {
+            backBtn.setOnClickListener { finish() }
+        }
     }
 
     private fun initObserver() {
-        viewModel.diaryList.flowWithLifecycle(this.lifecycle)
-            .onEach {
-                diaryItemRVAdapter.submitList(it) {
-                    showContent(binding.rvContent, binding.pbLoading, binding.evError)
-                }
-            }.launchIn(lifecycleScope)
+        with(viewModel) {
+            diaryList.flowWithLifecycle(lifecycle)
+                .onEach {
+                    diaryItemRVAdapter.submitList(it) {
+                        showContent(binding.rvContent, binding.pbLoading, binding.evError)
+                    }
+                }.launchIn(lifecycleScope)
+            layoutType.observe(this@DiaryListActivity) { diaryItemRVAdapter.setLayoutManager(it) }
+        }
     }
 
     private fun initAdapter() {
@@ -38,7 +50,7 @@ class DiaryListActivity :
     }
 
     companion object {
-        val LINEAR_VERTICAL = 0
-        val GRID_VERTICAL = 0
+        const val LINEAR_VERTICAL = 0
+        const val GRID_VERTICAL = 1
     }
 }

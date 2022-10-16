@@ -8,6 +8,8 @@
         <variable
             name="viewModel"
             type="com.army.ardiary.ui.main.diary.diarylist.DiaryListViewModel" />
+
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
@@ -54,7 +56,9 @@
                 android:layout_marginEnd="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/ic_linear" />
+                android:onClick="@{() -> viewModel.toggleLayoutType()}"
+                android:src="@drawable/ic_linear"
+                android:visibility="@{viewModel.isLinear}" />
 
             <ImageView
                 android:id="@+id/btnSwitch_grid"
@@ -63,7 +67,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:src="@drawable/ic_grid" />
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewModel.toggleLayoutType()}"
+                android:src="@drawable/ic_grid"
+                android:visibility="@{viewModel.isGrid}" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView

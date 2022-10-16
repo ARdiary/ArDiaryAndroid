@@ -30,6 +30,11 @@ class DiaryItemRVAdapter : ListAdapter<DiaryItem, RecyclerView.ViewHolder>(diffU
         }
     }
 
+    fun setLayoutManager(it: Int) {
+        this.managerType = it
+        this.notifyDataSetChanged()
+    }
+
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<DiaryItem>() {
             override fun areItemsTheSame(oldItem: DiaryItem, newItem: DiaryItem): Boolean =

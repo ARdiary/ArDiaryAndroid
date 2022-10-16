@@ -21,7 +21,8 @@ class DiaryListItemViewHolder(private val binding: ItemDiaryListBinding) :
         setLayoutManagerType(type)
     }
 
-    fun setLayoutManagerType(type: Int) {
+    private fun setLayoutManagerType(type: Int) {
+        diaryListRVAdapter.managerType = type
         binding.rvDiaryContent.apply {
             layoutManager = if (type == LINEAR_VERTICAL) LinearLayoutManager(
                 this.context,
