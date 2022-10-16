@@ -1,64 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawerView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!--상단 바 고정됨-->
-    <RelativeLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.army.ardiary.ui.main.diary.diarylist.DiaryListViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/drawerView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/middle_round_button"
-        android:elevation="15dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/back_btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="23dp"
-            android:background="@drawable/wave_layout" />
-
-        <TextView
-            android:id="@+id/diarylist_text"
-            android:layout_width="150dp"
-            android:layout_height="33dp"
-            android:layout_centerInParent="true"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Diary Lists"
-            android:textColor="#FFFFFF"
-            android:textSize="27dp" />
-
-        <ImageButton
-            android:id="@+id/btnSwitch"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/ic_launcher_background" />
-    </RelativeLayout>
-
-    <!-- 스크롤 뷰-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--세로로 전체 레이아웃-->
+        <!--상단 바 고정됨-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="38dp"
+            android:background="@drawable/middle_round_button"
+            android:elevation="15dp"
+            android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/frameLayout"
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="23dp"
+                android:src="@drawable/ic_cross"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/diarylist_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp" />
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Diary Lists"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/btnSwitch_linear"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewModel.toggleLayoutType()}"
+                android:src="@drawable/ic_linear"
+                android:visibility="@{viewModel.isLinear}" />
+
+            <ImageView
+                android:id="@+id/btnSwitch_grid"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewModel.toggleLayoutType()}"
+                android:src="@drawable/ic_grid"
+                android:visibility="@{viewModel.isGrid}" />
         </RelativeLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_diary_list" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary" />
+
+        <com.army.ardiary.ui.common.custom.CustomErrorView
+            android:id="@+id/ev_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout>
+</layout>

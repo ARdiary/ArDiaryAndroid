@@ -34,4 +34,6 @@
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_text">네트워크에 문제가 발생했습니다!</string>
+    <string name="error_refresh">다시 불러오기</string>
 </resources>
