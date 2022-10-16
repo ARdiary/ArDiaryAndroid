@@ -7,7 +7,6 @@ import com.army.ardiary.databinding.ActivityMainBinding
 import com.army.ardiary.ui.BaseActivity
 import com.army.ardiary.ui.main.diary.diarylist.DiaryListActivity
 import com.army.ardiary.ui.main.diary.timecasulelist.TimeCapsuleListActivity
-import com.army.ardiary.ui.main.map.MapActivity
 import com.army.ardiary.ui.main.notification.NotificationActivity
 import com.army.ardiary.ui.profile.MyProfileActivity
 
@@ -22,7 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private fun initButton() {
         with(binding) {
             btnNotification.setOnClickListener { startNextActivity(NotificationActivity::class.java) }
-            btnCamera.setOnClickListener { startNextActivity(MapActivity::class.java) }
+            //btnCamera.setOnClickListener { startNextActivity(MapActivity::class.java) }
         }
     }
 

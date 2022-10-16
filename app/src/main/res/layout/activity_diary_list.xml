@@ -1,64 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <!--상단 바 고정됨-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="38dp"
         android:background="@drawable/middle_round_button"
         android:elevation="15dp"
         android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/back_btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="23dp"
-            android:background="@drawable/wave_layout" />
+            android:layout_marginStart="23dp"
+            android:src="@drawable/ic_cross"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/diarylist_text"
-            android:layout_width="150dp"
-            android:layout_height="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center_vertical|center_horizontal"
             android:text="Diary Lists"
-            android:textColor="#FFFFFF"
-            android:textSize="27dp" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnSwitch"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_menu" />
     </RelativeLayout>
 
-    <!-- 스크롤 뷰-->
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--세로로 전체 레이아웃-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <FrameLayout
-                android:id="@+id/frameLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp" />
-        </RelativeLayout>
-    </ScrollView>
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_diary_list" />
 </LinearLayout>
