@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="diary"
+            type="com.army.ardiary.domain.model.DiaryItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

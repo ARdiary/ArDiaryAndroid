@@ -10,7 +10,7 @@ class DiaryContentViewHolder(private val binding: ItemDiaryContentBinding) :
 
     private var layoutManager = LinearLayoutManager.VERTICAL
 
-    fun bind(diaryItem: DiaryContent) {
-
+    fun bind(diaryContent: DiaryContent) {
+        binding.diary = diaryContent
     }
 }
