@@ -5,6 +5,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.army.ardiary.databinding.ActivityDiaryListBinding
 import com.army.ardiary.ui.BaseActivity
+import com.army.ardiary.ui.common.viewutils.showContent
 import com.army.ardiary.ui.main.diary.diarylist.adapter.DiaryItemRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -26,7 +27,7 @@ class DiaryListActivity :
         viewModel.diaryList.flowWithLifecycle(this.lifecycle)
             .onEach {
                 diaryItemRVAdapter.submitList(it) {
-                    // commit callback -> hide loading view and show rv
+                    showContent(binding.rvContent, binding.pbLoading, binding.evError)
                 }
             }.launchIn(lifecycleScope)
     }

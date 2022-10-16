@@ -30,22 +30,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="경복궁"
+            android:text="@{diary.location}"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_compass"
             app:layout_constraintStart_toEndOf="@id/iv_compass"
-            app:layout_constraintTop_toTopOf="@+id/iv_compass" />
+            app:layout_constraintTop_toTopOf="@+id/iv_compass"
+            tools:text="경주" />
 
         <TextView
+            updatedTime="@{diary.currentUpdated}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="최근 업데이트 : 19시 25분"
             android:textColor="@color/black"
             android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_location"
-            app:layout_constraintStart_toEndOf="@id/tv_location" />
+            app:layout_constraintStart_toEndOf="@id/tv_location"
+            tools:text="최근 업데이트 : 3분 전" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

@@ -6,4 +6,8 @@
         <attr name="menuTitle" format="string" />
         <attr name="menuIcon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="CustomErrorView">
+        <attr name="onClickRefreshButton" format="string" />
+    </declare-styleable>
 </resources>
