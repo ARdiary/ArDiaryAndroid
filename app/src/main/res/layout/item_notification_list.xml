@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="diary"
-            type="com.army.ardiary.domain.model.DiaryContent" />
+            name="notification"
+            type="com.army.ardiary.domain.model.Notification" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -26,9 +26,10 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_thumbnail"
-                image="@{diary.thumbnailUrl}"
+                image="@{notification.profileImageUrl}"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@{diary.title}"
+                android:text="@{notification.title}"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/iv_thumbnail"
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
-                android:text="@{diary.content}"
+                android:text="@{notification.content}"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@id/iv_thumbnail"
@@ -65,12 +66,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="28dp"
-                android:text="@{diary.type}"
                 android:textColor="@color/green"
                 android:textSize="8sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_cross"
                 app:layout_constraintEnd_toStartOf="@id/iv_cross"
                 app:layout_constraintTop_toTopOf="@id/iv_cross"
+                app:recentUpdateTime="@{notification.date}"
                 tools:text="30분 전" />
 
             <ImageView
