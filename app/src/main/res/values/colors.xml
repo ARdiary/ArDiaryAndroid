@@ -15,6 +15,7 @@
     <color name="form_error">#F44336</color>
 
     <color name="green">#117308</color>
+    <color name="lightGreen">#D8F5D9</color>
     <color name="gray">#E1E1E1</color>
 
     <!-- 로그인 -->

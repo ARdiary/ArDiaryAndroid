@@ -2,8 +2,10 @@ package com.army.ardiary.di
 
 import com.army.ardiary.data.repository.AuthRepositoryImpl
 import com.army.ardiary.data.repository.DiaryRepositoryImpl
+import com.army.ardiary.data.repository.TimeCapsuleRepositoryImpl
 import com.army.ardiary.domain.repository.AuthRepository
 import com.army.ardiary.domain.repository.DiaryRepository
+import com.army.ardiary.domain.repository.TimeCapsuleRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -25,4 +27,10 @@ abstract class RepositoryModule {
     abstract fun provideDiaryRepository(
         diaryRepositoryImpl: DiaryRepositoryImpl
     ): DiaryRepository
+
+    @Singleton
+    @Binds
+    abstract fun provideTimeCapsuleRepository(
+        timeCapsuleRepositoryImpl: TimeCapsuleRepositoryImpl
+    ): TimeCapsuleRepository
 }
