@@ -11,6 +11,8 @@ import com.army.ardiary.ui.main.diary.timecasulelist.adapter.viewholder.TimeCaps
 
 class TimeCapsuleListRVAdapter : ListAdapter<TimeCapsuleItem, RecyclerView.ViewHolder>(diffUtil) {
 
+    var onClickItem: (TimeCapsuleItem) -> Unit = {}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return TimeCapsuleItemViewHolder(
             ItemTimeCapsuleListBinding.inflate(
@@ -23,7 +25,7 @@ class TimeCapsuleListRVAdapter : ListAdapter<TimeCapsuleItem, RecyclerView.ViewH
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is TimeCapsuleItemViewHolder -> holder.bind(currentList[position])
+            is TimeCapsuleItemViewHolder -> holder.bind(currentList[position], onClickItem)
         }
     }
 

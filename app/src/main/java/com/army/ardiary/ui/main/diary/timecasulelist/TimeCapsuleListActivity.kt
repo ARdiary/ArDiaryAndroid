@@ -34,9 +34,11 @@ class TimeCapsuleListActivity :
                 with(binding) { showContent(rvContent, pbLoading, evError) }
             }
         }.launchIn(this.lifecycleScope)
+        viewModel.errorMsg.observe(this) { if (it.isNotBlank()) showToast(it) }
     }
 
     private fun initButton() {
         binding.backBtn.setOnClickListener { finish() }
+        timeCapsuleListRVAdapter.onClickItem = { viewModel.onClickTimeCapsuleItem(it) }
     }
 }

@@ -7,8 +7,8 @@ import com.army.ardiary.domain.model.TimeCapsuleItem
 class TimeCapsuleItemViewHolder(private val binding: ItemTimeCapsuleListBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(timeCapsuleItem: TimeCapsuleItem) {
-
+    fun bind(timeCapsuleItem: TimeCapsuleItem, onClick: (TimeCapsuleItem) -> Unit) {
+        binding.clItem.setOnClickListener { onClick(timeCapsuleItem) }
         binding.timecapsule = timeCapsuleItem
     }
 }
