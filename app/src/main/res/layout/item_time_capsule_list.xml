@@ -47,7 +47,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="🐱 경복궁azaa1a" />
+                    tools:text="ㅋ경주" />
 
                 <TextView
                     android:id="@+id/tv_date"
@@ -70,7 +70,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="김쿠팡, 이자바" />
+                    tools:text="김쿠팡, 이자" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

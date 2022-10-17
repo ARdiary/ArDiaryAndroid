@@ -2,6 +2,8 @@ package com.army.ardiary.di
 
 import com.army.ardiary.domain.usecase.diary.GetDiaryListUseCase
 import com.army.ardiary.domain.usecase.diary.impl.GetDiaryListUseCaseImpl
+import com.army.ardiary.domain.usecase.timecapsule.GetTimeCapsuleListUseCase
+import com.army.ardiary.domain.usecase.timecapsule.impl.GetTimeCapsuleListUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,10 @@ abstract class UseCaseModule {
     abstract fun provideGetDiaryListUseCase(
         getDiaryListUseCaseImpl: GetDiaryListUseCaseImpl
     ): GetDiaryListUseCase
+
+    @Singleton
+    @Binds
+    abstract fun provideGetTimeCapsuleListUseCase(
+        getTimeCapsuleListUseCaseImpl: GetTimeCapsuleListUseCaseImpl
+    ): GetTimeCapsuleListUseCase
 }
