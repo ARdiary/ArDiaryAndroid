@@ -7,8 +7,7 @@ import com.army.ardiary.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-@BindingAdapter("updatedTime")
-fun TextView.setUpdatedTime(date: Date) {
+fun getUpdateTimeString(date: Date): String {
     val currentTime = System.currentTimeMillis()
 
     val diff: Long = currentTime - date.time
@@ -18,13 +17,23 @@ fun TextView.setUpdatedTime(date: Date) {
     val days = hours / 24
     val years = days / 365
 
-    val t = "최근 업데이트 : " + if (years > 0) "${years}년 전"
+    return if (years > 0) "${years}년 전"
     else if (days > 0) "${days}일 전"
     else if (hours > 0) "${hours}시간 전"
     else if (minutes > 0) "${minutes}분 전"
     else "방금 전"
+}
+
+@BindingAdapter("updatedTime")
+fun TextView.setUpdatedTime(date: Date) {
+    val t = "최근 업데이트 : " + getUpdateTimeString(date)
 
     text = t
+}
+
+@BindingAdapter("recentUpdateTime")
+fun TextView.setRecentUpdateTime(date: Date) {
+    text = getUpdateTimeString(date)
 }
 
 @BindingAdapter("dDay")
