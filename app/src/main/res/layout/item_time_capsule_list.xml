@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="timecapsule"
+            type="com.army.ardiary.domain.model.TimeCapsuleItem" />
     </data>
 
     <LinearLayout

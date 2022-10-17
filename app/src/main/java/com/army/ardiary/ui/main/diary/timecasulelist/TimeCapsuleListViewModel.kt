@@ -21,7 +21,7 @@ class TimeCapsuleListViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             getTimeCapsuleListUseCase()
-                .onSuccess { }
+                .onSuccess { _timeCapsuleList.emit(it) }
                 .onFailure { }
         }
     }
