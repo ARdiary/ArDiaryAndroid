@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.army.ardiary.data.remote.guestbook.vo.GuestBook
+import com.army.ardiary.domain.model.GuestBook
 import com.army.ardiary.databinding.GuestBookListItemBinding
 import com.army.ardiary.utils.visibleView
 import com.bumptech.glide.Glide

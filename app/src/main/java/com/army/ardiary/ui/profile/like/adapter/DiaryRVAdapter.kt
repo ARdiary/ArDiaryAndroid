@@ -4,12 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.army.ardiary.data.remote.diary.vo.Diary
+import com.army.ardiary.domain.model.DiaryTemp
 import com.army.ardiary.databinding.DiaryListItemBinding
 import com.army.ardiary.utils.visibleView
 import com.bumptech.glide.Glide
 
-class DiaryRVAdapter(private val diaryList :ArrayList<Diary>): RecyclerView.Adapter<DiaryRVAdapter.ViewHolder>() {
+class DiaryRVAdapter(private val diaryList :ArrayList<DiaryTemp>): RecyclerView.Adapter<DiaryRVAdapter.ViewHolder>() {
     var onLikeClick:(Int) -> Unit = {}
 
     override fun getItemCount(): Int = diaryList.size
@@ -23,7 +23,7 @@ class DiaryRVAdapter(private val diaryList :ArrayList<Diary>): RecyclerView.Adap
     }
 
     inner class ViewHolder(val binding: DiaryListItemBinding, val context: Context): RecyclerView.ViewHolder(binding.root){
-        fun bind(diary: Diary){
+        fun bind(diary: DiaryTemp){
             binding.diaryUserNameTv.text = diary.name
             Glide.with(context)
                 .load(diary.imagePath)

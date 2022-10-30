@@ -1,6 +1,6 @@
 package com.army.ardiary.ui.profile.like
 
-import com.army.ardiary.data.remote.guestbook.vo.GuestBook
+import com.army.ardiary.domain.model.GuestBook
 import com.army.ardiary.databinding.FragmentGuestBookListBinding
 import com.army.ardiary.ui.BaseFragment
 import com.army.ardiary.ui.profile.like.adapter.GuestBookRVAdapter

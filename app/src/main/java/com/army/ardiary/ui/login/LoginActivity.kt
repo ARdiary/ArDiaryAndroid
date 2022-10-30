@@ -21,8 +21,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     val kakaoGetTokenApi = ""
 
     val tokens = listOf(
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBY2Nlc3MgVG9rZW4iLCJpZCI6MTAsImlhdCI6MTY2NTY3OTE5NywiZXhwIjoxNjY1NjgyNzk3fQ.9eF9pV3qcsHzpko-9BtsdG00Dzu01n40tiQf-zQw6uw",
-        "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjU2NzkxOTcsImV4cCI6MTY2NTc2NTU5N30.wxu7A0rM3j8uY8gVZwhy9LEfMvoY-l4iLJx7xHOf92o"
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBY2Nlc3MgVG9rZW4iLCJpZCI6MTAsImlhdCI6MTY2NzA1OTI2MiwiZXhwIjoxNjY3MDYyODYyfQ.dRlLTvE81LjNw6avhwo_M8IFm0vk7dpIECWuzCk-ULo",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjcwNTkyNjIsImV4cCI6MTY2NzE0NTY2Mn0.ZAP2nD6j8UTaf4_OBdOu0KqIabjKhPM9qKiF-J5RqPg"
     )
 
     private val authViewModel: AuthViewModel by viewModels()

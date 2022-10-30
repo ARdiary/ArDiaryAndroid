@@ -1,12 +1,15 @@
 package com.army.ardiary.data.repository
 
+import com.army.ardiary.data.remote.diary.datasource.DiaryDataSource
 import com.army.ardiary.domain.model.DiaryContent
 import com.army.ardiary.domain.model.DiaryItem
 import com.army.ardiary.domain.repository.DiaryRepository
 import java.util.*
 import javax.inject.Inject
 
-class DiaryRepositoryImpl @Inject constructor() : DiaryRepository {
+class DiaryRepositoryImpl @Inject constructor(
+    private val diaryDataSource: DiaryDataSource
+) : DiaryRepository {
 
     override suspend fun getDiaryList(): Result<List<DiaryItem>> {
         return runCatching {
@@ -20,6 +23,7 @@ class DiaryRepositoryImpl @Inject constructor() : DiaryRepository {
                 DiaryItem(1, dummyContentList, "경주 그 어딘가", Date()),
                 DiaryItem(2, dummyContentList, "인천", Date()),
             )
+            //diaryDataSource.getDiaryList()
         }
     }
 }
