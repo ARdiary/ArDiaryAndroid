@@ -5,4 +5,5 @@ import com.army.ardiary.domain.model.DiaryItem
 interface DiaryRepository {
 
     suspend fun getDiaryList(): Result<List<DiaryItem>>
+    suspend fun getLikeDiaryList(): Result<List<DiaryItem>>
 }

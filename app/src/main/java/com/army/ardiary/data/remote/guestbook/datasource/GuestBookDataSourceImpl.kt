@@ -9,4 +9,7 @@ class GuestBookDataSourceImpl @Inject constructor(
 ) : GuestBookDataSource {
 
     override suspend fun getGuestBookList(): List<GuestBookDto> = service.getGuestBookList()
+    override suspend fun getLikeGuestBookList(): List<GuestBookDto> {
+        TODO("Not yet implemented")
+    }
 }

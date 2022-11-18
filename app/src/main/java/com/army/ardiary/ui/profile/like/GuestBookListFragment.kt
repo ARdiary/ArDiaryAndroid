@@ -1,10 +1,12 @@
 package com.army.ardiary.ui.profile.like
 
-import com.army.ardiary.domain.model.GuestBook
 import com.army.ardiary.databinding.FragmentGuestBookListBinding
+import com.army.ardiary.domain.model.GuestBook
 import com.army.ardiary.ui.BaseFragment
 import com.army.ardiary.ui.profile.like.adapter.GuestBookRVAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GuestBookListFragment :
     BaseFragment<FragmentGuestBookListBinding>(FragmentGuestBookListBinding::inflate) {
     private val guestBookList = ArrayList<GuestBook>(5)

@@ -1,7 +1,11 @@
 package com.army.ardiary.di
 
 import com.army.ardiary.domain.usecase.diary.GetDiaryListUseCase
+import com.army.ardiary.domain.usecase.diary.GetLikeDiaryListUseCase
 import com.army.ardiary.domain.usecase.diary.impl.GetDiaryListUseCaseImpl
+import com.army.ardiary.domain.usecase.diary.impl.GetLikeDiaryListUseCaseImpl
+import com.army.ardiary.domain.usecase.guestbook.GetLikeGuestBookListUseCase
+import com.army.ardiary.domain.usecase.guestbook.impl.GetLikeGuestBookListUseCaseImpl
 import com.army.ardiary.domain.usecase.notification.GetNotificationListUseCase
 import com.army.ardiary.domain.usecase.notification.impl.GetNotificationListUseCaseImpl
 import com.army.ardiary.domain.usecase.timecapsule.GetTimeCapsuleListUseCase
@@ -33,4 +37,16 @@ abstract class UseCaseModule {
     abstract fun provideGetNotificationListUseCase(
         getNotificationListUseCaseImpl: GetNotificationListUseCaseImpl
     ): GetNotificationListUseCase
+
+    @Singleton
+    @Binds
+    abstract fun provideGetLikeDiaryListUseCase(
+        getLikeDiaryListUseCaseImpl: GetLikeDiaryListUseCaseImpl
+    ): GetLikeDiaryListUseCase
+
+    @Singleton
+    @Binds
+    abstract fun provideGetLikeGuestBookListUseCase(
+        getLikeGuestBookListUseCaseImpl: GetLikeGuestBookListUseCaseImpl
+    ): GetLikeGuestBookListUseCase
 }

@@ -4,7 +4,9 @@ import com.army.ardiary.databinding.ActivityLikeBinding
 import com.army.ardiary.ui.BaseActivity
 import com.army.ardiary.ui.profile.friends.adapter.FriendVPAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LikeActivity : BaseActivity<ActivityLikeBinding>(ActivityLikeBinding::inflate) {
     val category = arrayOf("일기♡", "방명록♡")
 

@@ -26,4 +26,8 @@ class DiaryRepositoryImpl @Inject constructor(
             //diaryDataSource.getDiaryList()
         }
     }
+
+    override suspend fun getLikeDiaryList(): Result<List<DiaryItem>> {
+        TODO("Not yet implemented")
+    }
 }
