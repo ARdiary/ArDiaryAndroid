@@ -2,7 +2,7 @@ package com.army.ardiary.ui.profile.like
 
 import com.army.ardiary.databinding.ActivityLikeBinding
 import com.army.ardiary.ui.BaseActivity
-import com.army.ardiary.ui.profile.friends.adapter.FriendVPAdapter
+import com.army.ardiary.ui.profile.like.adapter.LikeVPAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +17,7 @@ class LikeActivity : BaseActivity<ActivityLikeBinding>(ActivityLikeBinding::infl
 
     private fun initTabLayout() {
         with(binding) {
-            likeFragmentVp.adapter = FriendVPAdapter(supportFragmentManager, lifecycle)
+            likeFragmentVp.adapter = LikeVPAdapter(supportFragmentManager, lifecycle)
             TabLayoutMediator(likeTabLayout, likeFragmentVp) { tab, position ->
                 tab.text = category[position]
             }.attach()

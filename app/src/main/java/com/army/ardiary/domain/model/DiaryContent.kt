@@ -7,5 +7,6 @@ data class DiaryContent(
     val content: String,
     val type: String,
     val likeCount: Int = 0,
-    val commentCount: Int = 0
+    val commentCount: Int = 0,
+    val isLike: Boolean = false
 )

@@ -1,16 +1,23 @@
 package com.army.ardiary.ui.profile.like
 
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.army.ardiary.databinding.FragmentGuestBookListBinding
 import com.army.ardiary.domain.model.GuestBook
 import com.army.ardiary.ui.BaseFragment
 import com.army.ardiary.ui.profile.like.adapter.GuestBookRVAdapter
+import com.army.ardiary.ui.profile.like.viewmodel.LikeGuestBookViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class GuestBookListFragment :
     BaseFragment<FragmentGuestBookListBinding>(FragmentGuestBookListBinding::inflate) {
-    private val guestBookList = ArrayList<GuestBook>(5)
+    private var guestBookList = ArrayList<GuestBook>(5)
     private lateinit var guestBookRVAdapter: GuestBookRVAdapter
+
+    private val viewModel by viewModels<LikeGuestBookViewModel>()
 
     override fun initAfterBinding() {
         networkSetting()
@@ -18,61 +25,13 @@ class GuestBookListFragment :
 
     private fun networkSetting() {
         // following friend list load but first, put the dummies
-        guestBookList.add(
-            GuestBook(
-                "https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=5.0.244",
-                "test1",
-                "testing",
-                "2022-02-22",
-                "test",
-                true
-            )
-        )
-        guestBookList.add(
-            GuestBook(
-                "https://www.collinsdictionary.com/images/full/dog_230497594.jpg",
-                "test2",
-                "testing",
-                "2022-02-22",
-                "test",
-                true
-            )
-        )
-        guestBookList.add(
-            GuestBook(
-                "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
-                "test3",
-                "testing",
-                "2022-02-22",
-                "test",
-                true
-            )
-        )
-        guestBookList.add(
-            GuestBook(
-                "https://images.immediate.co.uk/production/volatile/sites/4/2022/06/Dog-love-hero-87954c7.jpg?quality=90&resize=940,400",
-                "test4",
-                "testing",
-                "2022-02-22",
-                "test",
-                true
-            )
-        )
-        guestBookList.add(
-            GuestBook(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHfSLr7bMI_19SlJ7v4kfRWAybmJjexTCcyw&usqp=CAU",
-                "test5",
-                "testing",
-                "2022-02-22",
-                "test",
-                true
-            )
-        )
-
-        guestBookRVAdapter = GuestBookRVAdapter(guestBookList).apply {
-            onLikeClick = this@GuestBookListFragment::onLikeClick
-        }
-        binding.followingRv.adapter = guestBookRVAdapter
+        viewModel.likeGuestBook.onEach {
+            guestBookList.addAll(it)
+            guestBookRVAdapter = GuestBookRVAdapter(guestBookList).apply {
+                onLikeClick = this@GuestBookListFragment::onLikeClick
+            }
+            binding.followingRv.adapter = guestBookRVAdapter
+        }.launchIn(this.lifecycleScope)
     }
 
     private fun onLikeClick(idx: Int) {
