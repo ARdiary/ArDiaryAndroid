@@ -1,35 +1,43 @@
-
 package com.army.ardiary.ui.profile.like
 
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.army.ardiary.data.remote.diary.vo.Diary
 import com.army.ardiary.databinding.FragmentDiaryListBinding
+import com.army.ardiary.domain.model.DiaryContent
 import com.army.ardiary.ui.BaseFragment
-import com.army.ardiary.ui.profile.friends.viewmodel.FriendViewModel
 import com.army.ardiary.ui.profile.like.adapter.DiaryRVAdapter
-import com.army.ardiary.utils.visibleView
+import com.army.ardiary.ui.profile.like.viewmodel.LikeDiaryViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
-class DiaryListFragment : BaseFragment<FragmentDiaryListBinding>(FragmentDiaryListBinding::inflate) {
-    private val diaryList = ArrayList<Diary>(5)
+@AndroidEntryPoint
+class DiaryListFragment :
+    BaseFragment<FragmentDiaryListBinding>(FragmentDiaryListBinding::inflate) {
+    private var diaryList = ArrayList<DiaryContent>(5)
     private lateinit var diaryRVAdapter: DiaryRVAdapter
+
+    private val viewModel by viewModels<LikeDiaryViewModel>()
 
     override fun initAfterBinding() {
         binding.followingRv.layoutManager = GridLayoutManager(this.requireContext(), 2)
         networkSetting()
     }
-    private fun networkSetting(){
-        // following friend list load but first, put the dummies
-        diaryList.add(Diary("https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=5.0.244","test1", "testing", true))
-        diaryList.add(Diary("https://www.collinsdictionary.com/images/full/dog_230497594.jpg","test2", "testing", true))
-        diaryList.add(Diary("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*","test3","testing", true))
-        diaryList.add(Diary("https://images.immediate.co.uk/production/volatile/sites/4/2022/06/Dog-love-hero-87954c7.jpg?quality=90&resize=940,400","test4","testing", true))
-        diaryList.add(Diary("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHfSLr7bMI_19SlJ7v4kfRWAybmJjexTCcyw&usqp=CAU","test5","testing", true))
 
-        diaryRVAdapter = DiaryRVAdapter(diaryList).apply { onLikeClick = this@DiaryListFragment::onLikeClick }
-        binding.followingRv.adapter = diaryRVAdapter
+    private fun networkSetting() {
+        // following friend list load but first, put the dummies
+        viewModel.likeDiaryList.onEach {
+            diaryList.addAll(it)
+            diaryRVAdapter =
+                DiaryRVAdapter(diaryList).apply {
+                    onLikeClick = this@DiaryListFragment::onLikeClick
+                }
+            binding.followingRv.adapter = diaryRVAdapter
+        }.launchIn(this.lifecycleScope)
     }
-    private fun onLikeClick(idx: Int){
+
+    private fun onLikeClick(idx: Int) {
         // remove friend
         diaryList.removeAt(idx)
         diaryRVAdapter.notifyItemRemoved(idx)

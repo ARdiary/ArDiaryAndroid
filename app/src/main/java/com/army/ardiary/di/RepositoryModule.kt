@@ -1,13 +1,7 @@
 package com.army.ardiary.di
 
-import com.army.ardiary.data.repository.AuthRepositoryImpl
-import com.army.ardiary.data.repository.DiaryRepositoryImpl
-import com.army.ardiary.data.repository.NotificationRepositoryImpl
-import com.army.ardiary.data.repository.TimeCapsuleRepositoryImpl
-import com.army.ardiary.domain.repository.AuthRepository
-import com.army.ardiary.domain.repository.DiaryRepository
-import com.army.ardiary.domain.repository.NotificationRepository
-import com.army.ardiary.domain.repository.TimeCapsuleRepository
+import com.army.ardiary.data.repository.*
+import com.army.ardiary.domain.repository.*
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -41,4 +35,10 @@ abstract class RepositoryModule {
     abstract fun provideNotificationRepository(
         notificationRepositoryImpl: NotificationRepositoryImpl
     ): NotificationRepository
+
+    @Singleton
+    @Binds
+    abstract fun provideGuestBookRepository(
+        guestBookRepositoryImpl: GuestBookRepositoryImpl
+    ): GuestBookRepository
 }

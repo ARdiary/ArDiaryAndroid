@@ -6,6 +6,10 @@ import com.army.ardiary.BuildConfig
 import com.army.ardiary.config.TokenAuthenticator
 import com.army.ardiary.config.XAccessTokenInterceptor
 import com.army.ardiary.data.remote.auth.AuthService
+import com.army.ardiary.data.remote.diary.service.DiaryService
+import com.army.ardiary.data.remote.friend.service.FriendService
+import com.army.ardiary.data.remote.guestbook.service.GuestBookService
+import com.army.ardiary.data.remote.timecapsule.service.TimeCapsuleService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,12 +62,6 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAuthService(retrofit: Retrofit): AuthService {
-        return retrofit.create(AuthService::class.java)
-    }
-
-    @Singleton
-    @Provides
     fun provideXAccessTokenInterceptor(@ApplicationContext context: Context): XAccessTokenInterceptor {
         return XAccessTokenInterceptor(context)
     }
@@ -72,5 +70,36 @@ object NetworkModule {
     @Provides
     fun provideTokenAuthenticator(@ApplicationContext context: Context): TokenAuthenticator {
         return TokenAuthenticator(context)
+    }
+
+    /* Create Service */
+    @Singleton
+    @Provides
+    fun provideAuthService(retrofit: Retrofit): AuthService {
+        return retrofit.create(AuthService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDiaryService(retrofit: Retrofit): DiaryService {
+        return retrofit.create(DiaryService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideFriendService(retrofit: Retrofit): FriendService {
+        return retrofit.create(FriendService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGuestBookService(retrofit: Retrofit): GuestBookService {
+        return retrofit.create(GuestBookService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTimeCapsuleService(retrofit: Retrofit): TimeCapsuleService {
+        return retrofit.create(TimeCapsuleService::class.java)
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.army.ardiary.data.remote.friend.vo.Friend
+import com.army.ardiary.domain.model.Friend
 import com.army.ardiary.databinding.FriendListItemBinding
 import com.army.ardiary.utils.visibleView
 import com.bumptech.glide.Glide

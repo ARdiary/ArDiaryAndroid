@@ -3,7 +3,7 @@ package com.army.ardiary.ui.profile.friends
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.army.ardiary.data.remote.friend.vo.Friend
+import com.army.ardiary.domain.model.Friend
 import com.army.ardiary.databinding.FragmentFollwingBinding
 import com.army.ardiary.ui.BaseFragment
 import com.army.ardiary.ui.profile.friends.adapter.FriendRVAdapter
